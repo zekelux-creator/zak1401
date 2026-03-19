@@ -1,4 +1,31 @@
-User-agent: *
+# --- ACCÈS TOTAL POUR LES IA ET MOTEURS ---
+
+User-agent: ClaudeBot
 Allow: /
 
-Sitemap: https://www.kus-zekeriya.com/sitemap.xml
+User-agent: Google-Extended
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+User-agent: *
+Content-Signal: search=yes,ai-input=yes,ai-train=yes
+Allow: /
+
+# --- SÉCURITÉ ---
+Disallow: /wp-admin/
+Allow: /wp-admin/admin-ajax.php
+Disallow: /wp-content/plugins/
+Disallow: /readme.html
+
+Sitemap: https://plafonnage-facade-luxembourg.be/sitemap_index.xml
