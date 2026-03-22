@@ -225,12 +225,11 @@ footer{background:var(--n);color:#999;padding:3rem 7% 1.8rem;}
 <body>
 
 <a href="https://wa.me/32479635732?text=Bonjour,%20je%20souhaite%20recevoir%20un%20devis%20pour%20mon%20projet.%20Pouvez-vous%20me%20recontacter%20?" 
-   target="_blank" 
-   style="position:fixed; bottom:20px; right:20px; z-index:10000; background:#25d366; border-radius:50px; padding:12px 22px; color:white; text-decoration:none; font-family:Arial, sans-serif; font-weight:bold; box-shadow: 0 4px 15px rgba(0,0,0,0.3); display:flex; align-items:center;">
+   style="position:fixed; bottom: 100px; /* Augmenté pour passer au-dessus du badge */ right:20px; z-index:10000; background:#25d366; border-radius:50px; padding:12px 22px; color:white; text-decoration:none; font-family:Arial, sans-serif; font-weight:bold; box-shadow: 0 4px 15px rgba(0,0,0,0.3); display:flex; align-items:center;" 
+   target="_blank">
    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" style="width:25px; margin-right:10px;">
    Demander un devis
 </a>
-
 <div id="popup-devis" style="display: none; position: fixed; z-index: 99999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.85); align-items: center; justify-content: center;">
     <div style="position: relative; background-color: #0b0b0b; padding: 15px; border-radius: 20px; border: 3px solid #F5C800; max-width: 90%; width: 550px; text-align: center; box-shadow: 0 0 50px rgba(245, 200, 0, 0.4);">
         <span onclick="closePopup()" style="position: absolute; top: 5px; right: 15px; color: #F5C800; font-size: 35px; font-weight: bold; cursor: pointer; z-index: 100001;">&times;</span>
