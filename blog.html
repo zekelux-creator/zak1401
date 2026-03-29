@@ -6,76 +6,53 @@
     <title>Blog Expertise Plafonnage & Façade | SRL KUS ZEKERIYA</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Styles spécifiques pour le blog pour coller à ton site */
-        :root {
-            --main-red: #d32f2f;
-            --dark-bg: #1a1a1a;
-        }
-
-        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding: 0; background: #fdfdfd; }
-
-        /* Style du Header (Inspiré de tes captures) */
-        nav {
-            background: #fff;
-            padding: 15px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .nav-brand { font-weight: bold; text-decoration: none; color: #333; font-size: 1.4rem; text-transform: uppercase; }
-        .nav-brand span { color: var(--main-red); }
-
-        .nav-links a { text-decoration: none; color: #333; margin-left: 20px; font-weight: 500; font-size: 0.95rem; }
-        .nav-links a:hover { color: var(--main-red); }
-
-        /* Section Blog */
-        .blog-header {
-            background: var(--dark-bg);
+        /* Quelques ajustements pour que le blog soit moderne */
+        body { background-color: #fdfdfd; margin: 0; padding: 0; font-family: sans-serif; }
+        
+        /* Zone Titre (Hero) */
+        .blog-hero {
+            background: #1a1a1a;
             color: white;
             padding: 80px 5%;
             text-align: center;
-            border-bottom: 5px solid var(--main-red);
+            border-bottom: 5px solid #d32f2f;
         }
 
-        .blog-header h1 { font-size: 2.5rem; margin-bottom: 10px; }
+        /* Grille d'articles */
+        .blog-container {
+            max-width: 1100px;
+            margin: -40px auto 80px;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
 
-        .container { max-width: 1000px; margin: -40px auto 60px; padding: 0 20px; }
-
-        .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-
-        .post-card {
+        .card {
             background: white;
             border-radius: 8px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
             overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
-            border-top: 4px solid var(--main-red);
+            border-top: 4px solid #d32f2f;
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
         }
 
-        .post-card:hover { transform: translateY(-5px); }
+        .card:hover { transform: translateY(-5px); }
 
-        .post-content { padding: 25px; }
-        .post-content .date { color: #888; font-size: 0.85rem; display: block; margin-bottom: 10px; }
-        .post-content h2 { margin: 0 0 15px 0; font-size: 1.3rem; color: #1a1a1a; line-height: 1.4; }
-        .post-content p { color: #555; font-size: 0.95rem; line-height: 1.6; }
-
-        .btn-read {
-            display: inline-block;
-            margin-top: 15px;
-            color: var(--main-red);
+        .card-content { padding: 25px; flex-grow: 1; }
+        .card-content .date { color: #888; font-size: 0.85rem; margin-bottom: 10px; display: block; }
+        .card-content h2 { margin: 0 0 15px 0; font-size: 1.3rem; color: #1a1a1a; line-height: 1.4; }
+        .card-content p { color: #555; font-size: 0.95rem; line-height: 1.6; }
+        
+        .card-link {
+            color: #d32f2f;
             text-decoration: none;
             font-weight: bold;
-            border-bottom: 2px solid transparent;
+            display: inline-block;
+            margin-top: 20px;
         }
-
-        .btn-read:hover { border-bottom-color: var(--main-red); }
-
-        footer { background: var(--dark-bg); color: #888; padding: 40px 5%; text-align: center; font-size: 0.9rem; }
     </style>
 </head>
 <body>
@@ -84,42 +61,41 @@
         <a href="index.html" class="nav-brand">SRL <span>KUS</span> ZEKERIYA</a>
         <div class="nav-links">
             <a href="index.html">Accueil</a>
-            <a href="blog.html" style="color: var(--main-red);">Blog</a>
+            <a href="blog.html" style="color: #d32f2f;">Blog</a>
             <a href="index.html#contact">Contact</a>
         </div>
     </nav>
 
-    <header class="blog-header">
-        <h1>Conseils d'Experts</h1>
+    <header class="blog-hero">
+        <h1 style="font-size: 2.5rem; margin-bottom: 10px;">Conseils d'Experts</h1>
         <p>Tout savoir sur le plafonnage et la façade en Province de Luxembourg</p>
     </header>
 
-    <div class="container">
-        <div class="blog-grid">
-            
-            <article class="post-card">
-                <div class="post-content">
-                    <span class="date">29 Mars 2026</span>
-                    <h2>Pourquoi choisir un artisan local à Bastogne ?</h2>
-                    <p>Découvrez pourquoi la proximité et la présence du patron sur chantier font toute la différence pour la qualité de vos finitions.</p>
-                    <a href="article-choisir-plafonneur.html" class="btn-read">Lire l'article →</a>
-                </div>
-            </article>
+    <div class="blog-container">
+        
+        <article class="card">
+            <div class="card-content">
+                <span class="date">29 Mars 2026</span>
+                <h2>Pourquoi choisir un artisan local à Bastogne ?</h2>
+                <p>Découvrez pourquoi la proximité et la présence du patron sur chantier font toute la différence pour la qualité de vos finitions.</p>
+                <a href="article-choisir-plafonneur.html" class="card-link">Lire l'article →</a>
+            </div>
+        </article>
 
-            <article class="post-card">
-                <div class="post-content">
-                    <span class="date">À venir</span>
-                    <h2>Primes Rénovation 2026 : Ce qu'il faut savoir</h2>
-                    <p>Ne passez pas à côté des aides de la Région Wallonne pour l'isolation de votre façade ou vos travaux de plafonnage.</p>
-                    <a href="#" class="btn-read" style="color:#ccc;">Bientôt disponible</a>
-                </div>
-            </article>
+        <article class="card">
+            <div class="card-content">
+                <span class="date">Nouveau</span>
+                <h2>Primes Rénovation 2026 : Ce qu'il faut savoir</h2>
+                <p>Ne passez pas à côté des aides de la Région Wallonne pour l'isolation de votre façade ou vos travaux de plafonnage.</p>
+                <a href="article-primes-2026.html" class="card-link">Lire l'article →</a>
+            </div>
+        </article>
 
-        </div>
     </div>
 
-    <footer>
-        <p>&copy; 2026 SRL KUS ZEKERIYA | Plafonnage & Façade Luxembourg</p>
+    <footer style="background: #1a1a1a; color: #888; padding: 60px 5%; text-align: center;">
+        <p style="color: #fff;">SRL KUS ZEKERIYA - Expert en Parachèvement</p>
+        <p>&copy; 2026 | Plafonnage & Façade Luxembourg</p>
     </footer>
 
 </body>
