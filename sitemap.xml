@@ -1,67 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <!-- Accueil -->
+  <!-- Page principale -->
   <url>
-    <loc>https://www.kus-zekeriya.com/</loc>
-    <lastmod>2026-03-18</lastmod>
+    <loc>https://plafonnage-facade-luxembourg.be/</loc>
+    <lastmod>2026-03-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
 
-  <!-- Plafonnage traditionnel -->
+  <!-- Pages services -->
   <url>
-    <loc>https://www.kus-zekeriya.com/plafonnage-traditionnel.html</loc>
-    <lastmod>2026-03-18</lastmod>
+    <loc>https://plafonnage-facade-luxembourg.be/plafonnage-traditionnel.html</loc>
+    <lastmod>2026-03-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
-  <!-- Plafonnage bâtiment ancien -->
   <url>
-    <loc>https://www.kus-zekeriya.com/plafonnage-ancien.html</loc>
-    <lastmod>2026-03-18</lastmod>
+    <loc>https://plafonnage-facade-luxembourg.be/plafonnage-ancien.html</loc>
+    <lastmod>2026-03-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
-  <!-- Façade traditionnelle -->
   <url>
-    <loc>https://www.kus-zekeriya.com/facade-traditionnelle.html</loc>
-    <lastmod>2026-03-18</lastmod>
+    <loc>https://plafonnage-facade-luxembourg.be/facade-traditionnelle.html</loc>
+    <lastmod>2026-03-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
-  <!-- Façade isolante -->
   <url>
-    <loc>https://www.kus-zekeriya.com/facade-isolante.html</loc>
-    <lastmod>2026-03-18</lastmod>
+    <loc>https://plafonnage-facade-luxembourg.be/facade-isolante.html</loc>
+    <lastmod>2026-03-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
-  <!-- Cloisons & faux-plafonds -->
   <url>
-    <loc>https://www.kus-zekeriya.com/cloisons-faux-plafonds.html</loc>
-    <lastmod>2026-03-18</lastmod>
+    <loc>https://plafonnage-facade-luxembourg.be/cloisons-faux-plafonds.html</loc>
+    <lastmod>2026-03-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
-  <!-- Isolation intérieure -->
   <url>
-    <loc>https://www.kus-zekeriya.com/isolation-interieur.html</loc>
-    <lastmod>2026-03-18</lastmod>
+    <loc>https://plafonnage-facade-luxembourg.be/isolation-interieur.html</loc>
+    <lastmod>2026-03-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
-  <!-- Peinture -->
   <url>
-    <loc>https://www.kus-zekeriya.com/peinture.html</loc>
-    <lastmod>2026-03-18</lastmod>
+    <loc>https://plafonnage-facade-luxembourg.be/peinture.html</loc>
+    <lastmod>2026-03-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
