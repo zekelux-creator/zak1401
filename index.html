@@ -268,27 +268,6 @@ footer{background:var(--n);color:#999;padding:3rem 7% 1.8rem;}
    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" style="width:25px; margin-right:10px;">
    Demander un devis
 </a>
-<div id="popup-devis" style="display: none; position: fixed; z-index: 99999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.85); align-items: center; justify-content: center;">
-    <div style="position: relative; background-color: #0b0b0b; padding: 15px; border-radius: 20px; border: 3px solid #F5C800; max-width: 90%; width: 550px; text-align: center; box-shadow: 0 0 50px rgba(245, 200, 0, 0.4);">
-        <span onclick="closePopup()" style="position: absolute; top: 5px; right: 15px; color: #F5C800; font-size: 35px; font-weight: bold; cursor: pointer; z-index: 100001;">&times;</span>
-        <a href="#contact" onclick="closePopup()" style="text-decoration: none; display: block;">
-            <img src="banniere-devis.png" alt="Devis Gratuit" style="width: 100%; height: auto; border-radius: 10px; margin-top: 10px; display: block;">
-            <div style="background-color: #F5C800; color: #000; padding: 12px; margin-top: 15px; border-radius: 10px; font-weight: bold; font-family: sans-serif; font-size: 18px;">
-                CLIQUEZ ICI POUR VOTRE DEVIS
-            </div>
-        </a>
-    </div>
-</div>
-<script>
-    window.addEventListener('load', function() {
-        setTimeout(function() {
-            document.getElementById('popup-devis').style.display = 'flex';
-        }, 2000);
-    });
-
-    function closePopup() {
-        document.getElementById('popup-devis').style.display = 'none';
-    }
 </script>
 <nav>
     <a href="index.html" class="nav-brand">SRL <span>KUS</span> ZEKERIYA</a>
