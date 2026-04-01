@@ -298,24 +298,40 @@ footer{background:var(--n);color:#999;padding:3rem 7% 1.8rem;}
 <!-- HERO -->
 <div style="padding-top:68px;min-height:100vh;display:grid;grid-template-columns:1fr 1fr;background:#1a1a1a;position:relative;overflow:hidden;">
   <div style="display:flex;flex-direction:column;justify-content:center;padding:5% 5% 5% 7%;z-index:2;animation:fadeUp 0.7s both;">
+    
     <p style="font-size:0.88rem;color:#bbb;margin-bottom:0.6rem;letter-spacing:0.04em;">Isolez, Économisez, Valorisez.</p>
+
     <style>
-  .hero-link {
-    color: #ffffff;             
-    text-decoration: none;      
-    transition: color 0.3s ease;
-    font-family: inherit; /* Garde tes lettres épaisses */
-    font-weight: inherit; /* Garde l'épaisseur maximale */
-  }
-  .hero-link:hover, .hero-link:active {
-    color: #ffcc00 !important;  
-  }
-</style>
-<h1>
-  <a href="facade-traditionnelle.html" class="hero-link">FAÇADES,</a><br>
-  <a href="facade-isolante.html" class="hero-link">ISOLATION &</a><br>
-  <a href="plafonnage-traditionnel.html" class="hero-link">PLAFONNAGE</a>
-</h1>
+      .hero-link {
+        color: #ffffff;
+        text-decoration: none;
+        transition: color 0.3s ease;
+        font-family: 'Barlow Condensed', sans-serif;
+        font-weight: 800;
+        font-size: clamp(2.5rem, 6vw, 4rem);
+        text-transform: uppercase;
+        letter-spacing: 0.02em;
+        line-height: 1.1;
+      }
+      .hero-link:hover, .hero-link:active {
+        color: #ffcc00 !important;
+      }
+      .h2-region {
+        font-family: 'Barlow Condensed', sans-serif;
+        font-weight: 800;
+        font-size: clamp(1rem, 2vw, 1.5rem);
+        color: #F5C800;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        margin-bottom: 0.3rem;
+      }
+    </style>
+
+    <h1 style="margin:0 0 0.5rem 0;line-height:1.1;">
+      <a href="facade-traditionnelle.html" class="hero-link">FAÇADES,</a><br>
+      <a href="facade-isolante.html" class="hero-link">ISOLATION &</a><br>
+      <a href="plafonnage-traditionnel.html" class="hero-link">PLAFONNAGE</a>
+    </h1>
     <h2 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(1rem,2vw,1.5rem);color:#F5C800;text-transform:uppercase;letter-spacing:0.04em;margin-bottom:0.3rem;">Région de Fauvillers, Bastogne,</h2>
     <h2 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(1rem,2vw,1.5rem);color:#F5C800;text-transform:uppercase;letter-spacing:0.04em;margin-bottom:0.3rem;">Vaux-sur-Sûre, Libramont, Étalle</h2>
     <h2 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(1rem,2vw,1.5rem);color:#F5C800;text-transform:uppercase;letter-spacing:0.04em;margin-bottom:1rem;">et Arlon</h2>
