@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Le plafonnage traditionnel — SRL KUS ZEKERIYA</title>
+  <meta name="description" content="Tout savoir sur le plafonnage traditionnel en Province de Luxembourg. SRL KUS ZEKERIYA, plâtrier artisan avec 25 ans d'expérience à Arlon, Bastogne, Libramont et alentours." />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #ffffff;
+      color: #111111;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    /* ── NAV ── */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 2rem;
+      border-bottom: 1px solid #eee;
+    }
+    .logo { font-size: 18px; font-weight: 900; color: #111; letter-spacing: -0.5px; text-decoration: none; }
+    .logo span { color: #f5c800; }
+    nav a {
+      font-size: 14px;
+      font-weight: 500;
+      color: #111;
+      text-decoration: none;
+      margin-left: 1.5rem;
+    }
+    nav a.active { color: #f5c800; font-weight: 700; }
+
+    /* ── LAYOUT ── */
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem;
+    }
+
+    /* ── TAGS ── */
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 1.75rem; }
+    .tag {
+      background: #111;
+      color: #f5c800;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 5px 14px;
+      border-radius: 999px;
+    }
+
+    /* ── TITRE ── */
+    h1 {
+      font-size: 38px;
+      font-weight: 900;
+      line-height: 1.15;
+      color: #111;
+      margin-bottom: 1rem;
+    }
+    .intro {
+      font-size: 15px;
+      color: #444;
+      line-height: 1.75;
+      margin-bottom: 2.5rem;
+    }
+    .intro strong { font-weight: 700; color: #111; }
+
+    /* ── H2 avec bordure jaune ── */
+    h2 {
+      font-size: 20px;
+      font-weight: 800;
+      color: #111;
+      border-left: 4px solid #f5c800;
+      padding-left: 14px;
+      margin: 2.5rem 0 1rem;
+    }
+
+    /* ── H3 ── */
+    h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: #111;
+      margin: 1.5rem 0 0.5rem;
+    }
+
+    /* ── PARAGRAPHES ── */
+    p { margin-bottom: 1rem; color: #333; }
+    p strong { font-weight: 700; color: #111; }
+
+    /* ── LISTES ── */
+    ul {
+      padding-left: 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+    ul li { margin-bottom: 5px; color: #333; }
+    ul li::marker { color: #f5c800; }
+    ul li strong { font-weight: 700; color: #111; }
+
+    /* ── TABLEAU ── */
+    .table-wrap {
+      margin: 1.75rem 0;
+      border: 1px solid #ddd;
+      overflow-x: auto;
+    }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    thead tr { background: #111; }
+    thead td {
+      padding: 13px 16px;
+      font-weight: 700;
+      color: #f5c800;
+    }
+    tbody tr { border-bottom: 1px solid #eee; }
+    tbody tr:last-child { border-bottom: none; }
+    tbody td { padding: 12px 16px; color: #333; vertical-align: top; }
+    tbody td:first-child { font-weight: 700; color: #111; }
+
+    /* ── CTA ── */
+    .cta {
+      background: #111;
+      border-radius: 4px;
+      padding: 2rem;
+      margin-top: 2.5rem;
+      text-align: center;
+    }
+    .cta p { font-size: 15px; color: #bbb; margin-bottom: 1.25rem; }
+    .cta a {
+      display: inline-block;
+      background: #f5c800;
+      color: #111;
+      font-weight: 800;
+      font-size: 14px;
+      padding: 11px 30px;
+      border-radius: 999px;
+      text-decoration: none;
+    }
+    .cta a:hover { background: #e6b800; }
+
+    /* ── FOOTER ARTICLE ── */
+    .article-footer {
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #eee;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .article-footer span.label { font-size: 13px; color: #999; margin-right: 4px; }
+    .ftag {
+      background: #f5f5f5;
+      color: #555;
+      font-size: 12px;
+      padding: 4px 12px;
+      border-radius: 999px;
+    }
+
+    /* ── FOOTER SITE ── */
+    footer {
+      background: #111;
+      color: #999;
+      text-align: center;
+      padding: 2rem;
+      font-size: 13px;
+      margin-top: 4rem;
+    }
+    footer strong { color: #f5c800; }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 26px; }
+      header { padding: 1rem; }
+      .container { padding: 2rem 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <a href="/" class="logo">SRL <span>KUS</span> ZEKERIYA</a>
+    <nav>
+      <a href="/">Accueil</a>
+      <a href="/blog.html" class="active">Blog</a>
+    </nav>
+  </header>
+
+  <!-- CONTENU -->
+  <div class="container">
+
+    <!-- Tags -->
+    <div class="tags">
+      <span class="tag">Plafonnage</span>
+      <span class="tag">Plâtrerie</span>
+      <span class="tag">Arlon</span>
+      <span class="tag">Bastogne</span>
+      <span class="tag">Libramont</span>
+    </div>
+
+    <!-- Titre -->
+    <h1>Le plafonnage traditionnel : l'art d'un intérieur soigné en Province de Luxembourg</h1>
+
+    <!-- Intro -->
+    <p class="intro">
+      Vous cherchez un plafonneur à <strong>Arlon</strong>, <strong>Bastogne</strong> ou <strong>Libramont</strong> ?
+      Le plafonnage traditionnel reste la technique de référence pour obtenir des murs et plafonds lisses, durables et esthétiques.
+      Chez <strong>SRL KUS ZEKERIYA</strong>, nous pratiquons cet artisanat depuis plus de 25 ans, avec un patron présent sur chaque chantier.
+    </p>
+
+    <!-- Section 1 -->
+    <h2>Qu'est-ce que le plafonnage traditionnel ?</h2>
+    <p>
+      Le plafonnage traditionnel consiste à appliquer une ou plusieurs couches de plâtre ou d'enduit sur les murs et plafonds d'un bâtiment.
+      L'objectif est double : obtenir une surface plane et esthétique, tout en protégeant les parois des chocs, de l'humidité et du temps.
+    </p>
+    <p>
+      Contrairement aux solutions de ragréage rapide ou aux panneaux de placo collés, le plafonnage à la main offre un résultat incomparable
+      en termes de finition et de longévité.
+    </p>
+
+    <!-- Section 2 -->
+    <h2>Les 4 étapes d'un plafonnage réussi</h2>
+
+    <h3>1. La préparation du support</h3>
+    <p>
+      Avant toute chose, le support doit être propre, sain et stable. Nous vérifions l'état des murs, comblons les fissures existantes
+      et appliquons si nécessaire un primaire d'accrochage pour garantir l'adhérence de l'enduit.
+    </p>
+
+    <h3>2. Le gobetis (couche d'accrochage)</h3>
+    <p>
+      Le gobetis est une couche projetée ou appliquée à la main qui crée une liaison solide entre le support et les couches suivantes.
+      C'est une étape que beaucoup négligent, mais qui fait toute la différence dans la durée.
+    </p>
+
+    <h3>3. Le corps d'enduit</h3>
+    <p>
+      C'est la couche principale, plus épaisse, qui comble les irrégularités et donne l'aplomb général au mur ou au plafond.
+      Elle est soigneusement dressée à la règle pour garantir la planéité.
+    </p>
+
+    <h3>4. La finition</h3>
+    <p>
+      La dernière couche, fine et lisse, donne l'aspect final. Selon vos préférences, on peut obtenir un rendu mat, satiné
+      ou légèrement texturé. C'est ici que l'expérience du plâtrier fait toute la différence.
+    </p>
+
+    <!-- Section 3 : tableau -->
+    <h2>Pourquoi choisir le plafonnage traditionnel ?</h2>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <td>Critère</td>
+            <td>Plafonnage traditionnel</td>
+            <td>Solutions rapides (placo, ragréage)</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Durabilité</td>
+            <td>Très longue durée de vie</td>
+            <td>Vieillissement plus rapide</td>
+          </tr>
+          <tr>
+            <td>Finition</td>
+            <td>Lisse et entièrement personnalisable</td>
+            <td>Limitée par les formats standards</td>
+          </tr>
+          <tr>
+            <td>Humidité</td>
+            <td>Régulation naturelle du plâtre</td>
+            <td>Sensible à l'humidité</td>
+          </tr>
+          <tr>
+            <td>Adaptabilité</td>
+            <td>Neuf et rénovation ancienne</td>
+            <td>Surtout construction neuve</td>
+          </tr>
+          <tr>
+            <td>Valeur immobilière</td>
+            <td>Valorise le bien</td>
+            <td>Impact limité</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Section 4 -->
+    <h2>Pourquoi nous choisir face aux grandes structures ?</h2>
+    <p>
+      À la différence des grandes entreprises qui envoient des équipes de sous-traitants anonymes sur vos chantiers,
+      <strong>SRL KUS ZEKERIYA</strong> c'est un artisan qui se déplace lui-même. Votre interlocuteur est toujours le même,
+      du devis jusqu'à la réception des travaux.
+    </p>
+    <ul>
+      <li><strong>25 ans d'expérience</strong> en Province de Luxembourg</li>
+      <li>Patron <strong>présent sur chaque chantier</strong></li>
+      <li>Prix juste, sans frais de structure inutiles</li>
+      <li>Devis <strong>gratuit et sans engagement</strong></li>
+      <li>Interventions rapides dans toute la région</li>
+    </ul>
+
+    <!-- Section 5 -->
+    <h2>Nos zones d'intervention en Province de Luxembourg</h2>
+    <p>SRL KUS ZEKERIYA intervient dans toute la Province de Luxembourg :</p>
+    <ul>
+      <li><strong>Arlon</strong>, Bastogne, Libramont-Chevigny</li>
+      <li><strong>Marche-en-Famenne</strong>, Neufchâteau, Virton</li>
+      <li>Fauvillers, Étalle, Vaux-sur-Sûre, Saint-Hubert</li>
+      <li>Et toutes les communes environnantes</li>
+    </ul>
+    <p>Nous sommes également actifs au <strong>Grand-Duché du Luxembourg</strong>.</p>
+
+    <!-- CTA -->
+    <div class="cta">
+      <p>Vous avez un projet de plafonnage en Province de Luxembourg ? Contactez SRL KUS ZEKERIYA pour un devis gratuit et sans engagement.</p>
+      <a href="#contact">Demander un devis gratuit</a>
+    </div>
+
+    <!-- Footer article -->
+    <div class="article-footer">
+      <span class="label">Tags :</span>
+      <span class="ftag">Plafonnage traditionnel</span>
+      <span class="ftag">Plâtrerie Belgique</span>
+      <span class="ftag">Plafonneur Luxembourg</span>
+      <span class="ftag">Enduit intérieur</span>
+      <span class="ftag">Rénovation</span>
+    </div>
+
+  </div>
+
+  <!-- FOOTER SITE -->
+  <footer>
+    <p>&copy; 2025 <strong>SRL KUS ZEKERIYA</strong> — Plafonneur & Façadier en Province de Luxembourg</p>
+  </footer>
+
+</body>
+</html>
