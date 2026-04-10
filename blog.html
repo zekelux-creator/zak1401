@@ -1,162 +1,159 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZCSH805LZ7"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZCSH805LZ7"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-ZCSH805LZ7');
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-ZCSH805LZ7');
 </script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog Expertise | SRL KUS ZEKERIYA</title>
-    <style>
-        /* CONFIGURATION AUX COULEURS DE TON SITE (JAUNE ET NOIR) */
-        :root { 
-            --jaune: #FFD300; /* Le jaune de ton bouton Appelez */
-            --noir: #1a1a1a; 
-            --blanc: #ffffff; 
-            --fond: #f8f8f8; 
-        }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; }
-        body { background-color: var(--fond); color: #333; }
-
-        /* MENU (LOGO JAUNE) */
-        nav {
-            background: var(--blanc);
-            padding: 15px 8%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        .logo { font-size: 1.3rem; font-weight: bold; text-decoration: none; color: #333; text-transform: uppercase; }
-        .logo span { color: var(--jaune); } /* KUS EN JAUNE */
-        
-        .nav-links a { text-decoration: none; color: #333; margin-left: 20px; font-weight: 500; font-size: 0.9rem; }
-        .nav-links a:hover { color: var(--jaune); }
-
-        /* BANDEAU NOIR */
-        .hero {
-            background: var(--noir);
-            color: var(--blanc);
-            padding: 70px 5%;
-            text-align: center;
-            border-bottom: 5px solid var(--jaune); /* LIGNE JAUNE */
-        }
-        .hero h1 { font-size: 2.2rem; text-transform: uppercase; margin-bottom: 10px; letter-spacing: 1px; }
-
-        /* CARTES D'ARTICLES */
-        .container { max-width: 1100px; margin: 40px auto; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
-        
-        .card {
-            background: var(--blanc);
-            border-radius: 4px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            text-decoration: none;
-            color: inherit;
-            transition: 0.3s;
-            border-top: 5px solid var(--jaune); /* HAUT DE CARTE JAUNE */
-            display: block;
-        }
-        .card:hover { transform: translateY(-5px); }
-        .card-body { padding: 30px; }
-        .card-body .label { color: var(--jaune); font-weight: bold; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 10px; display: block; }
-        .card-body h2 { font-size: 1.3rem; color: var(--noir); margin-bottom: 15px; }
-        .card-btn { color: #333; font-weight: bold; font-size: 0.9rem; border-bottom: 2px solid var(--jaune); }
-
-        /* BOUTON DEVIS JAUNE COMME TON SITE */
-        .cta { background: var(--noir); color: var(--blanc); padding: 60px 5%; text-align: center; }
-        .btn-contact {
-            display: inline-block;
-            background: var(--jaune); /* BOUTON JAUNE */
-            color: #000; /* TEXTE NOIR SUR JAUNE */
-            padding: 15px 35px;
-            text-decoration: none;
-            border-radius: 3px;
-            font-weight: bold;
-            text-transform: uppercase;
-            margin-top: 20px;
-        }
-
-        /* FOOTER */
-        footer { background: #000; color: #888; padding: 40px; text-align: center; font-size: 0.85rem; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog Expertise | SRL KUS ZEKERIYA</title>
+<style>
+:root {
+  --jaune: #FFD300;
+  --noir: #1a1a1a;
+  --blanc: #ffffff;
+  --fond: #f8f8f8;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; }
+body { background-color: var(--fond); color: #333; }
+nav {
+  background: var(--blanc);
+  padding: 15px 8%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+.logo { font-size: 1.3rem; font-weight: bold; text-decoration: none; color: #333; text-transform: uppercase; }
+.logo span { color: var(--jaune); }
+.nav-links a { text-decoration: none; color: #333; margin-left: 20px; font-weight: 500; font-size: 0.9rem; }
+.nav-links a:hover { color: var(--jaune); }
+.hero {
+  background: var(--noir);
+  color: var(--blanc);
+  padding: 70px 5%;
+  text-align: center;
+  border-bottom: 5px solid var(--jaune);
+}
+.hero h1 { font-size: 2.2rem; text-transform: uppercase; margin-bottom: 10px; letter-spacing: 1px; }
+.container { max-width: 1100px; margin: 40px auto; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+.card {
+  background: var(--blanc);
+  border-radius: 4px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  text-decoration: none;
+  color: inherit;
+  transition: 0.3s;
+  border-top: 5px solid var(--jaune);
+  display: block;
+}
+.card:hover { transform: translateY(-5px); }
+.card-body { padding: 30px; }
+.card-body .label { color: var(--jaune); font-weight: bold; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 10px; display: block; }
+.card-body h2 { font-size: 1.3rem; color: var(--noir); margin-bottom: 15px; }
+.card-btn { color: #333; font-weight: bold; font-size: 0.9rem; border-bottom: 2px solid var(--jaune); }
+.cta { background: var(--noir); color: var(--blanc); padding: 60px 5%; text-align: center; }
+.btn-contact {
+  display: inline-block;
+  background: var(--jaune);
+  color: #000;
+  padding: 15px 35px;
+  text-decoration: none;
+  border-radius: 3px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-top: 20px;
+}
+footer { background: #000; color: #888; padding: 40px; text-align: center; font-size: 0.85rem; }
+</style>
 </head>
 <body>
 
-    <nav>
-        <a href="index.html" class="logo">SRL <span>KUS</span> ZEKERIYA</a>
-        <div class="nav-links">
-            <a href="index.html">Accueil</a>
-            <a href="blog.html" style="color: var(--jaune); border-bottom: 2px solid var(--jaune);">Blog</a>
-            <a href="https://plafonnage-facade-luxembourg.be/#contact">Contact</a>
-        </div>
-    </nav>
+<nav>
+  <a href="index.html" class="logo">SRL <span>KUS</span> ZEKERIYA</a>
+  <div class="nav-links">
+    <a href="index.html">Accueil</a>
+    <a href="blog.html" style="color: var(--jaune); border-bottom: 2px solid var(--jaune);">Blog</a>
+    <a href="https://plafonnage-facade-luxembourg.be/#contact">Contact</a>
+  </div>
+</nav>
 
-    <header class="hero">
-        <h1>Conseils & Expertise</h1>
-        <p>Entreprise de plafonnage et façade isolante</p>
-    </header>
+<header class="hero">
+  <h1>Conseils & Expertise</h1>
+  <p>Entreprise de plafonnage et façade isolante</p>
+</header>
 
-    <main class="container">
+<main class="container">
 
-        <a href="article-choisir-plafonneur.html" class="card">
-            <div class="card-body">
-                <span class="label">Conseil Pro</span>
-                <h2>Pourquoi choisir un artisan local à Bastogne ?</h2>
-                <p>La proximité et les 25 ans d'expérience du patron garantissent vos finitions.</p>
-                <br>
-                <span class="card-btn">Lire l'article →</span>
-            </div>
-        </a>
+  <a href="article-choisir-plafonneur.html" class="card">
+    <div class="card-body">
+      <span class="label">Conseil Pro</span>
+      <h2>Pourquoi choisir un artisan local à Bastogne ?</h2>
+      <p>La proximité et les 25 ans d'expérience du patron garantissent vos finitions.</p>
+      <br>
+      <span class="card-btn">Lire l'article →</span>
+    </div>
+  </a>
 
-        <a href="article-primes-2026.html" class="card">
-            <div class="card-body">
-                <span class="label">Primes 2026</span>
-                <h2>Guide des Primes Rénovation en Wallonie</h2>
-                <p>Ne perdez pas vos aides pour l'isolation de vos façades cette année.</p>
-                <br>
-                <span class="card-btn">Lire l'article →</span>
-            </div>
-        </a>
+  <a href="article-primes-2026.html" class="card">
+    <div class="card-body">
+      <span class="label">Primes 2026</span>
+      <h2>Guide des Primes Rénovation en Wallonie</h2>
+      <p>Ne perdez pas vos aides pour l'isolation de vos façades cette année.</p>
+      <br>
+      <span class="card-btn">Lire l'article →</span>
+    </div>
+  </a>
 
-        <a href="article-plafonneur-libramont.html" class="card">
-            <div class="card-body">
-                <span class="label" style="background: #000; color: #FFD300; padding: 2px 8px; border-radius: 3px;">ZONE : LIBRAMONT</span>
-                <h2 style="margin-top:15px;">Vous cherchez un plafonneur à Libramont ou Neufchâteau ?</h2>
-                <p>À Libramont, évitez les chantiers "à la chaîne". Découvrez pourquoi la proximité de Vaux-sur-Sûre garantit un travail soigné et un patron présent.</p>
-                <br>
-                <span class="card-btn">Pourquoi nous choisir à Libramont →</span>
-            </div>
-        </a>
+  <a href="article-plafonneur-libramont.html" class="card">
+    <div class="card-body">
+      <span class="label" style="background: #000; color: #FFD300; padding: 2px 8px; border-radius: 3px;">ZONE : LIBRAMONT</span>
+      <h2 style="margin-top:15px;">Vous cherchez un plafonneur à Libramont ou Neufchâteau ?</h2>
+      <p>À Libramont, évitez les chantiers "à la chaîne". Découvrez pourquoi la proximité de Vaux-sur-Sûre garantit un travail soigné et un patron présent.</p>
+      <br>
+      <span class="card-btn">Pourquoi nous choisir à Libramont →</span>
+    </div>
+  </a>
 
-        <!-- NOUVELLE CARTE — ARLON -->
-        <a href="article-plafonneur-arlon.html" class="card">
-            <div class="card-body">
-                <span class="label" style="background: #000; color: #FFD300; padding: 2px 8px; border-radius: 3px;">ZONE : ARLON</span>
-                <h2 style="margin-top:15px;">Plafonneur à Arlon — Façade, Isolation & Peinture</h2>
-                <p>Artisan local basé à Vaux-sur-Sûre, on intervient à Arlon, Étalle, Virton et environs. 25 ans d'expérience, zéro sous-traitance, devis gratuit sur place.</p>
-                <br>
-                <span class="card-btn">Pourquoi nous choisir à Arlon →</span>
-            </div>
-        </a>
+  <a href="article-plafonneur-arlon.html" class="card">
+    <div class="card-body">
+      <span class="label" style="background: #000; color: #FFD300; padding: 2px 8px; border-radius: 3px;">ZONE : ARLON</span>
+      <h2 style="margin-top:15px;">Plafonneur à Arlon — Façade, Isolation & Peinture</h2>
+      <p>Artisan local basé à Vaux-sur-Sûre, on intervient à Arlon, Étalle, Virton et environs. 25 ans d'expérience, zéro sous-traitance, devis gratuit sur place.</p>
+      <br>
+      <span class="card-btn">Pourquoi nous choisir à Arlon →</span>
+    </div>
+  </a>
 
-    </main>
+  <!-- NOUVEL ARTICLE : PLAFONNAGE TRADITIONNEL -->
+  <a href="article-plafonnage-traditionnel.html" class="card">
+    <div class="card-body">
+      <span class="label">Plafonnage</span>
+      <h2>Le plafonnage traditionnel : l'art d'un intérieur soigné en Province de Luxembourg</h2>
+      <p>Les 4 étapes clés du plafonnage à la main, ses avantages durables et pourquoi choisir un artisan local à Arlon, Bastogne ou Libramont.</p>
+      <br>
+      <span class="card-btn">Lire l'article →</span>
+    </div>
+  </a>
 
-    <section class="cta">
-        <h2>Un projet en Province de Luxembourg ?</h2>
-        <a href="https://plafonnage-facade-luxembourg.be/#contact" class="btn-contact">Demander mon devis gratuit</a>
-    </section>
+</main>
 
-    <footer>
-        <p>&copy; 2026 SRL KUS ZEKERIYA | Bastogne - Libramont - Arlon</p>
-    </footer>
+<section class="cta">
+  <h2>Un projet en Province de Luxembourg ?</h2>
+  <a href="https://plafonnage-facade-luxembourg.be/#contact" class="btn-contact">Demander mon devis gratuit</a>
+</section>
+
+<footer>
+  <p>&copy; 2026 SRL KUS ZEKERIYA | Bastogne - Libramont - Arlon</p>
+</footer>
 
 </body>
 </html>
