@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -12,66 +13,121 @@ gtag('config', 'G-ZCSH805LZ7');
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Blog Expertise | SRL KUS ZEKERIYA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 <style>
 :root {
-  --jaune: #FFD300;
+  --j: #F5C800;
+  --jd: #D4A900;
   --noir: #1a1a1a;
   --blanc: #ffffff;
   --fond: #f8f8f8;
+  /* alias pour compatibilité cartes/footer */
+  --jaune: #F5C800;
 }
-* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; }
-body { background-color: var(--fond); color: #333; }
+*,*::before,*::after { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Lato', sans-serif; background-color: var(--fond); color: #333; overflow-x: hidden; }
+
+/* ── NAV identique à l'index ── */
 nav {
-  background: var(--blanc);
-  padding: 15px 8%;
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 200;
+  background: rgba(26,26,26,0.97);
+  backdrop-filter: blur(10px);
+  height: 68px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+  justify-content: space-between;
+  padding: 0 5%;
+  border-bottom: 2px solid var(--j);
 }
-.logo { font-size: 1.3rem; font-weight: bold; text-decoration: none; color: #333; text-transform: uppercase; }
-.logo span { color: var(--jaune); }
-.nav-links a { text-decoration: none; color: #333; margin-left: 20px; font-weight: 500; font-size: 0.9rem; }
-.nav-links a:hover { color: var(--jaune); }
+.logo {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 1.25rem;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.logo span { color: var(--j); }
+.nav-links { display: flex; align-items: center; gap: 1.5rem; }
+.nav-links a {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #ccc;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  transition: color 0.2s;
+  white-space: nowrap;
+}
+.nav-links a:hover, .nav-links a.active { color: var(--j); }
+.nav-cta {
+  background: var(--j) !important;
+  color: var(--noir) !important;
+  padding: 0.5rem 1.1rem !important;
+  border-radius: 3px;
+  font-weight: 800 !important;
+}
+.nav-cta:hover { background: var(--jd) !important; }
+/* ── HERO ── */
 .hero {
   background: var(--noir);
-  color: var(--blanc);
-  padding: 70px 5%;
+  color: #fff;
+  padding: 110px 5% 70px; /* 68px nav + espace */
   text-align: center;
-  border-bottom: 5px solid var(--jaune);
+  border-bottom: 5px solid var(--j);
 }
-.hero h1 { font-size: 2.2rem; text-transform: uppercase; margin-bottom: 10px; letter-spacing: 1px; }
+.hero h1 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+.hero p { color: #bbb; font-size: 0.97rem; }
+
+/* ── GRILLE ARTICLES ── */
 .container { max-width: 1100px; margin: 40px auto; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
 .card {
-  background: var(--blanc);
+  background: #fff;
   border-radius: 4px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.05);
   text-decoration: none;
   color: inherit;
   transition: 0.3s;
-  border-top: 5px solid var(--jaune);
+  border-top: 5px solid var(--j);
   display: block;
 }
-.card:hover { transform: translateY(-5px); }
+.card:hover { transform: translateY(-5px); box-shadow: 0 12px 32px rgba(0,0,0,0.1); }
 .card-body { padding: 30px; }
-.card-body .label { color: var(--jaune); font-weight: bold; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 10px; display: block; }
-.card-body h2 { font-size: 1.3rem; color: var(--noir); margin-bottom: 15px; }
-.card-btn { color: #333; font-weight: bold; font-size: 0.9rem; border-bottom: 2px solid var(--jaune); }
-.cta { background: var(--noir); color: var(--blanc); padding: 60px 5%; text-align: center; }
+.card-body .label { color: var(--j); font-weight: 700; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 10px; display: block; }
+.card-body h2 { font-family: 'Barlow Condensed', sans-serif; font-size: 1.4rem; font-weight: 800; text-transform: uppercase; color: var(--noir); margin-bottom: 15px; line-height: 1.2; }
+.card-body p { font-size: 0.88rem; color: #666; line-height: 1.65; }
+.card-btn { color: #333; font-weight: 700; font-size: 0.85rem; border-bottom: 2px solid var(--j); margin-top: 4px; display: inline-block; }
+
+/* ── CTA ── */
+.cta { background: var(--noir); color: #fff; padding: 60px 5%; text-align: center; }
+.cta h2 { font-family: 'Barlow Condensed', sans-serif; font-size: 2rem; font-weight: 900; text-transform: uppercase; margin-bottom: 10px; }
 .btn-contact {
   display: inline-block;
-  background: var(--jaune);
+  background: var(--j);
   color: #000;
   padding: 15px 35px;
   text-decoration: none;
   border-radius: 3px;
-  font-weight: bold;
+  font-weight: 800;
   text-transform: uppercase;
+  letter-spacing: 0.07em;
   margin-top: 20px;
+  transition: background 0.2s;
 }
+.btn-contact:hover { background: var(--jd); }
+
+/* ── FOOTER ── */
 footer { background: #000; color: #888; padding: 40px; text-align: center; font-size: 0.85rem; }
 </style>
 </head>
@@ -81,8 +137,8 @@ footer { background: #000; color: #888; padding: 40px; text-align: center; font-
   <a href="index.html" class="logo">SRL <span>KUS</span> ZEKERIYA</a>
   <div class="nav-links">
     <a href="index.html">Accueil</a>
-    <a href="blog.html" style="color: var(--jaune); border-bottom: 2px solid var(--jaune);">Blog</a>
-    <a href="https://plafonnage-facade-luxembourg.be/#contact">Contact</a>
+    <a href="blog.html" class="active">Blog</a>
+    <a href="https://plafonnage-facade-luxembourg.be/#contact" class="nav-cta">Devis gratuit</a>
   </div>
 </nav>
 
