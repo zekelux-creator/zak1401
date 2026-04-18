@@ -1,102 +1,99 @@
-<?xml version="1.0" encoding="UTF-8"?>
+This XML file does not appear to have any style information associated with it. The document tree is shown below.
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-  <url>
-    <loc>https://plafonnage-facade-luxembourg.be/</loc>
-    <lastmod>2026-03-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-  </url>
-
-  <url>
-    <loc>https://plafonnage-facade-luxembourg.be/plafonnage-traditionnel.html</loc>
-    <lastmod>2026-03-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://plafonnage-facade-luxembourg.be/plafonnage-ancien.html</loc>
-    <lastmod>2026-03-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://plafonnage-facade-luxembourg.be/facade-traditionnelle.html</loc>
-    <lastmod>2026-03-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://plafonnage-facade-luxembourg.be/facade-isolante.html</loc>
-    <lastmod>2026-03-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://plafonnage-facade-luxembourg.be/cloisons-faux-plafonds.html</loc>
-    <lastmod>2026-03-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://plafonnage-facade-luxembourg.be/isolation-interieur.html</loc>
-    <lastmod>2026-03-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://plafonnage-facade-luxembourg.be/peinture.html</loc>
-    <lastmod>2026-03-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://plafonnage-facade-luxembourg.be/blog.html</loc>
-    <lastmod>2026-04-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://plafonnage-facade-luxembourg.be/article-choisir-plafonneur.html</loc>
-    <lastmod>2026-03-31</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://plafonnage-facade-luxembourg.be/article-primes-2026.html</loc>
-    <lastmod>2026-03-31</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://plafonnage-facade-luxembourg.be/article-plafonneur-libramont.html</loc>
-    <lastmod>2026-03-31</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://plafonnage-facade-luxembourg.be/article-plafonneur-arlon.html</loc>
-    <lastmod>2026-03-31</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://plafonnage-facade-luxembourg.be/article-plafonnage-traditionnel.html</loc>
-    <lastmod>2026-04-10</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
+<url>
+<loc>https://plafonnage-facade-luxembourg.be/</loc>
+<lastmod>2026-03-31</lastmod>
+<changefreq>monthly</changefreq>
+<priority>1.0</priority>
+</url>
+<url>
+<loc>https://plafonnage-facade-luxembourg.be/plafonnage-traditionnel.html</loc>
+<lastmod>2026-03-31</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.9</priority>
+</url>
+<url>
+<loc>https://plafonnage-facade-luxembourg.be/plafonnage-ancien.html</loc>
+<lastmod>2026-03-31</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.9</priority>
+</url>
+<url>
+<loc>https://plafonnage-facade-luxembourg.be/facade-traditionnelle.html</loc>
+<lastmod>2026-03-31</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.9</priority>
+</url>
+<url>
+<loc>https://plafonnage-facade-luxembourg.be/facade-isolante.html</loc>
+<lastmod>2026-03-31</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.9</priority>
+</url>
+<url>
+<loc>https://plafonnage-facade-luxembourg.be/cloisons-faux-plafonds.html</loc>
+<lastmod>2026-03-31</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://plafonnage-facade-luxembourg.be/isolation-interieur.html</loc>
+<lastmod>2026-03-31</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://plafonnage-facade-luxembourg.be/peinture.html</loc>
+<lastmod>2026-03-31</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://plafonnage-facade-luxembourg.be/blog.html</loc>
+<lastmod>2026-04-10</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://plafonnage-facade-luxembourg.be/simulateur.html</loc>
+<lastmod>2026-04-18</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.9</priority>
+</url>
+<url>
+<loc>https://plafonnage-facade-luxembourg.be/faq.html</loc>
+<lastmod>2026-04-18</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://plafonnage-facade-luxembourg.be/article-choisir-plafonneur.html</loc>
+<lastmod>2026-03-31</lastmod>
+<changefreq>yearly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://plafonnage-facade-luxembourg.be/article-primes-2026.html</loc>
+<lastmod>2026-03-31</lastmod>
+<changefreq>yearly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://plafonnage-facade-luxembourg.be/article-plafonneur-libramont.html</loc>
+<lastmod>2026-03-31</lastmod>
+<changefreq>yearly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://plafonnage-facade-luxembourg.be/article-plafonneur-arlon.html</loc>
+<lastmod>2026-03-31</lastmod>
+<changefreq>yearly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://plafonnage-facade-luxembourg.be/article-plafonnage-traditionnel.html</loc>
+<lastmod>2026-04-10</lastmod>
+<changefreq>yearly</changefreq>
+<priority>0.8</priority>
+</url>
 </urlset>
