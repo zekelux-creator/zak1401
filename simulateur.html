@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html lang="fr-BE">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Simulateur de Devis – SRL KUS ZEKERIYA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+:root{--j:#F5C800;--jd:#D4A900;--n:#1a1a1a;--gf:#f8f7f4;--gm:#f0ede8;--gc:#f4f2ee;--w:#fff;--t:#2a2a2a;--ts:#5a5a5a;--border:#e2ddd8;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Lato',sans-serif;color:var(--t);background:#fff;overflow-x:hidden;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(26,26,26,0.97);backdrop-filter:blur(10px);height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 5%;border-bottom:2px solid var(--j);}
+.nav-brand{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.25rem;color:#fff;text-decoration:none;text-transform:uppercase;letter-spacing:0.04em;}
+.nav-brand span{color:var(--j);}
+.nav-links{display:flex;align-items:center;gap:1.5rem;}
+.nav-links a{font-size:0.78rem;font-weight:700;color:#ccc;text-decoration:none;text-transform:uppercase;letter-spacing:0.09em;transition:color 0.2s;white-space:nowrap;}
+.nav-links a:hover,.nav-links a.active{color:var(--j);}
+.dd{position:relative;}
+.dd:hover .dd-menu{display:block;}
+.dd-menu{display:none;position:absolute;top:100%;left:0;background:#fff;border:1px solid var(--border);border-top:2px solid var(--j);min-width:240px;z-index:300;padding:0.4rem 0;box-shadow:0 8px 24px rgba(0,0,0,0.1);}
+.dd-menu a{display:block;padding:0.55rem 1rem;font-size:0.75rem;font-weight:600;color:#444;text-decoration:none;text-transform:uppercase;letter-spacing:0.07em;transition:all 0.15s;}
+.dd-menu a:hover{background:var(--gf);color:var(--j);padding-left:1.3rem;}
+.nav-cta{background:var(--j)!important;color:var(--n)!important;padding:0.5rem 1.1rem!important;border-radius:3px;font-weight:800!important;}
+.nav-cta:hover{background:var(--jd)!important;}
+.nav-burger{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:4px;}
+.nav-burger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;}
+
+/* BUTTONS */
+.btn-p{display:inline-flex;align-items:center;gap:0.5rem;background:var(--j);color:var(--n);padding:0.82rem 1.6rem;border-radius:3px;font-weight:800;font-size:0.87rem;text-transform:uppercase;letter-spacing:0.08em;text-decoration:none;transition:all 0.2s;border:2px solid var(--j);}
+.btn-p:hover{background:var(--jd);border-color:var(--jd);transform:translateY(-2px);box-shadow:0 8px 24px rgba(245,200,0,0.3);}
+.btn-s{display:inline-flex;align-items:center;gap:0.5rem;background:transparent;color:#fff;padding:0.82rem 1.6rem;border-radius:3px;font-weight:700;font-size:0.87rem;text-transform:uppercase;letter-spacing:0.08em;text-decoration:none;transition:all 0.2s;border:2px solid rgba(255,255,255,0.4);}
+.btn-s:hover{border-color:var(--j);color:var(--j);}
+.btn-o{display:inline-flex;align-items:center;gap:0.5rem;background:transparent;color:var(--n);padding:0.8rem 1.5rem;border-radius:3px;font-weight:700;font-size:0.87rem;text-transform:uppercase;letter-spacing:0.08em;text-decoration:none;transition:all 0.2s;border:2px solid #ccc;}
+.btn-o:hover{background:var(--n);color:#fff;border-color:var(--n);}
+
+/* SECTIONS */
+.sec{padding:5rem 7%;}
+.sec-light{background:#fff;}
+.sec-warm{background:var(--gf);}
+.sec-dark{background:var(--n);}
+.sec-label{display:inline-flex;align-items:center;gap:0.5rem;font-size:0.7rem;font-weight:800;text-transform:uppercase;letter-spacing:0.14em;color:var(--j);margin-bottom:0.7rem;}
+.sec-label::before{content:"";display:block;width:22px;height:2px;background:var(--j);}
+h2.sec-t{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(2rem,3.8vw,3.2rem);text-transform:uppercase;line-height:1;color:var(--n);margin-bottom:1rem;}
+h2.sec-t em{color:var(--j);font-style:normal;}
+h2.sec-t.light{color:#fff;}
+.sec-intro{font-size:0.97rem;color:var(--ts);line-height:1.8;max-width:580px;}
+.sec-intro.light{color:#bbb;}
+
+/* PAGE HERO */
+.page-hero{padding-top:68px;background:var(--n);min-height:46vh;display:flex;flex-direction:column;justify-content:center;padding-left:7%;padding-right:42%;position:relative;overflow:hidden;}
+.page-hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;filter:brightness(0.28);}
+.phc{position:relative;z-index:2;padding:4rem 0;}
+.ptag{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(245,200,0,0.15);border:1px solid rgba(245,200,0,0.4);color:var(--j);font-size:0.7rem;font-weight:700;letter-spacing:0.13em;text-transform:uppercase;padding:0.35rem 0.8rem;border-radius:2px;margin-bottom:1rem;}
+.page-hero h1{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(2.5rem,5vw,4.5rem);line-height:0.95;color:#fff;text-transform:uppercase;margin-bottom:0.8rem;}
+.page-hero h1 em{color:var(--j);font-style:normal;}
+.psub{font-size:0.97rem;color:#bbb;line-height:1.65;margin-bottom:1.5rem;max-width:480px;}
+.psub strong{color:#fff;}
+
+/* TICKER */
+.ticker{background:var(--j);padding:0.8rem 0;overflow:hidden;}
+.ticker-t{display:flex;gap:2.5rem;white-space:nowrap;animation:tick 22s linear infinite;}
+.ticker-t span{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.8rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--n);}
+@keyframes tick{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* CARDS — light version */
+.cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);margin-top:2.5rem;border-radius:8px;overflow:hidden;}
+.cw{background:#fff;padding:2rem 1.8rem;transition:all 0.25s;}
+.cw:hover{background:var(--n);transform:translateY(-2px);box-shadow:0 12px 32px rgba(0,0,0,0.12);}
+.cw:hover .ci,.cw:hover .ct{color:var(--j);}
+.cw:hover .cx,.cw:hover .clink{color:#bbb;}
+.ci{font-size:1.8rem;margin-bottom:0.7rem;color:var(--j);transition:color 0.25s;}
+.ct{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.1rem;text-transform:uppercase;margin-bottom:0.5rem;transition:color 0.25s;color:var(--n);}
+.cx{font-size:0.86rem;color:var(--ts);line-height:1.72;transition:color 0.25s;}
+.clink{display:inline-flex;align-items:center;gap:0.4rem;color:var(--j);font-weight:700;font-size:0.8rem;text-transform:uppercase;letter-spacing:0.07em;text-decoration:none;margin-top:1rem;transition:color 0.25s;}
+
+/* CARDS — dark version */
+.cards3d{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#333;border:1px solid #333;margin-top:2.5rem;border-radius:8px;overflow:hidden;}
+.cd{background:#222;padding:2rem 1.8rem;position:relative;overflow:hidden;transition:background 0.25s;}
+.cd::after{content:"";position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--j);transform:scaleX(0);transform-origin:left;transition:transform 0.3s;}
+.cd:hover{background:#2a2a2a;}
+.cd:hover::after{transform:scaleX(1);}
+.cd .ct{color:#fff;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.1rem;text-transform:uppercase;margin-bottom:0.5rem;}
+.cd .cx{color:#999;font-size:0.86rem;line-height:1.72;}
+.cd .clink{display:inline-flex;align-items:center;gap:0.4rem;color:var(--j);font-weight:700;font-size:0.8rem;text-transform:uppercase;letter-spacing:0.07em;text-decoration:none;margin-top:0.8rem;}
+
+/* TWO COL */
+.twocol{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:center;}
+.twocol.flip{direction:rtl;}
+.twocol.flip>*{direction:ltr;}
+.col-img{width:100%;border-radius:10px;object-fit:cover;display:block;max-height:460px;box-shadow:0 16px 48px rgba(0,0,0,0.12);}
+
+/* THREE IMAGES */
+.three-imgs{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin-top:2rem;}
+.three-imgs img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:8px;box-shadow:0 8px 24px rgba(0,0,0,0.1);}
+.three-imgs img:first-child{aspect-ratio:1/1;}
+
+/* DETAIL LIST */
+.dlist{display:flex;flex-direction:column;gap:0.6rem;margin-top:1rem;}
+.dlist li{display:flex;align-items:flex-start;gap:0.7rem;font-size:0.9rem;line-height:1.6;list-style:none;padding:0.6rem 0;border-bottom:1px solid var(--border);}
+.dlist li:last-child{border-bottom:none;}
+.dlist li::before{content:"✓";color:var(--j);font-size:0.9rem;margin-top:0.05rem;flex-shrink:0;font-weight:700;}
+.dlist li strong{color:var(--n);flex-shrink:0;min-width:160px;}
+.dlist li span{color:var(--ts);}
+
+/* BREADCRUMB */
+.breadcrumb{font-size:0.75rem;color:#aaa;margin-bottom:1rem;}
+.breadcrumb a{color:#ccc;text-decoration:none;}
+.breadcrumb a:hover{color:var(--j);}
+.breadcrumb span{color:var(--j);}
+
+/* STATS */
+.stats-g{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:2rem;}
+.stat-b{background:var(--n);padding:1.4rem;border-radius:8px;text-align:center;}
+.stat-n{font-family:'Barlow Condensed',sans-serif;font-size:2.6rem;font-weight:900;color:var(--j);line-height:1;}
+.stat-l{font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:#aaa;margin-top:0.25rem;}
+
+/* GALLERY */
+.gal-g{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2rem;}
+.gal-c{position:relative;overflow:hidden;border-radius:10px;box-shadow:0 4px 16px rgba(0,0,0,0.08);}
+.gal-c:first-child{grid-column:span 2;}
+.gal-img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;transition:transform 0.4s;filter:brightness(0.88);}
+.gal-c:first-child .gal-img{aspect-ratio:16/9;}
+.gal-c:hover .gal-img{transform:scale(1.04);filter:brightness(0.7);}
+.gal-info{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,0.85));padding:2rem 1.2rem 1rem;}
+.gal-loc{font-size:0.66rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--j);margin-bottom:0.25rem;}
+.gal-title{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1rem;text-transform:uppercase;color:#fff;line-height:1.2;}
+
+/* ZONES */
+.zones-list{display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;}
+.zone-i{display:flex;align-items:center;gap:0.5rem;background:#fff;border:1px solid var(--border);padding:0.7rem 1rem;border-radius:6px;font-weight:700;font-size:0.83rem;text-transform:uppercase;letter-spacing:0.04em;transition:all 0.2s;box-shadow:0 2px 6px rgba(0,0,0,0.04);}
+.zone-i:hover{border-color:var(--j);transform:translateY(-2px);box-shadow:0 6px 16px rgba(245,200,0,0.15);}
+.zone-i::before{content:"📍";font-size:0.72rem;}
+
+/* NORMES */
+.normes{display:flex;align-items:center;justify-content:center;gap:3rem;flex-wrap:wrap;background:rgba(245,200,0,0.07);border:1px solid rgba(245,200,0,0.2);padding:1.8rem;border-radius:8px;margin-top:2rem;}
+.nv{font-family:'Barlow Condensed',sans-serif;font-size:1.5rem;font-weight:900;color:var(--j);text-align:center;}
+.nl{font-size:0.7rem;color:#999;text-transform:uppercase;letter-spacing:0.07em;text-align:center;}
+
+/* CONTACT FORM */
+.form-b{background:#fff;padding:2.2rem;border-radius:10px;border:1px solid var(--border);box-shadow:0 4px 24px rgba(0,0,0,0.06);}
+.fg{display:flex;flex-direction:column;gap:0.35rem;margin-bottom:0.9rem;}
+.fg label{font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--ts);}
+.fg input,.fg select,.fg textarea{border:1.5px solid var(--border);border-radius:6px;padding:0.72rem 0.9rem;font-family:'Lato',sans-serif;font-size:0.93rem;outline:none;transition:border-color 0.2s;background:#fafaf8;color:var(--n);}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--j);background:#fff;}
+.fg textarea{resize:vertical;min-height:100px;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:0.9rem;}
+
+/* AVIS */
+.avis-g{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.5rem;}
+.avis-card{background:#fff;padding:1.8rem;border-radius:10px;border:1px solid var(--border);box-shadow:0 4px 16px rgba(0,0,0,0.06);transition:transform 0.2s,box-shadow 0.2s;}
+.avis-card:hover{transform:translateY(-3px);box-shadow:0 8px 28px rgba(0,0,0,0.1);}
+.avis-card.featured{border-color:var(--j);border-width:2px;}
+
+/* FOOTER */
+footer{background:var(--n);color:#999;padding:3rem 7% 1.8rem;}
+.foot-g{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:2.5rem;margin-bottom:2rem;}
+.foot-brand{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.2rem;color:var(--j);text-transform:uppercase;margin-bottom:0.7rem;}
+.foot-desc{font-size:0.83rem;line-height:1.75;color:#888;}
+.foot-col h4{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:0.88rem;text-transform:uppercase;letter-spacing:0.08em;color:#fff;margin-bottom:0.9rem;}
+.foot-links{display:flex;flex-direction:column;gap:0.45rem;}
+.foot-links a{color:#888;text-decoration:none;font-size:0.83rem;transition:color 0.2s;}
+.foot-links a:hover{color:var(--j);}
+.foot-bot{border-top:1px solid #2a2a2a;padding-top:1.2rem;display:flex;justify-content:space-between;font-size:0.76rem;color:#555;}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity 0.65s,transform 0.65s;}
+.reveal.visible{opacity:1;transform:none;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+
+/* AVANT APRES */
+.aa-wrap{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2rem;}
+.aa-card{border-radius:10px;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,0.1);}
+.aa-img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;}
+.aa-label{display:inline-block;padding:0.3rem 0.8rem;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;border-radius:3px;}
+.aa-before{background:var(--n);color:#fff;}
+.aa-after{background:var(--j);color:var(--n);}
+.aa-cap{background:var(--n);padding:0.9rem 1.2rem;display:flex;align-items:center;gap:0.8rem;}
+.aa-cap-loc{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--j);}
+.aa-cap-title{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.95rem;text-transform:uppercase;color:#fff;}
+
+/* RESPONSIVE */
+@media(max-width:960px){
+  .cards3,.cards3d{grid-template-columns:1fr 1fr;}
+  .twocol{grid-template-columns:1fr;}
+  .foot-g{grid-template-columns:1fr 1fr;}
+  .gal-g{grid-template-columns:1fr 1fr;}
+  .gal-c:first-child{grid-column:span 2;}
+  .stats-g{grid-template-columns:1fr 1fr;}
+  .avis-g{grid-template-columns:1fr;}
+  .nav-links{display:none;}
+  .nav-burger{display:flex;}
+  .page-hero{padding-right:5%;}
+  .sec{padding:3.5rem 5%;}
+  .three-imgs{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:600px){
+  .cards3,.cards3d,.gal-g,.aa-wrap{grid-template-columns:1fr;}
+  .gal-c:first-child{grid-column:span 1;}.gal-c:first-child .gal-img{aspect-ratio:4/3;}
+  .stats-g{grid-template-columns:1fr 1fr;}
+  .zones-list{grid-template-columns:1fr 1fr;}
+  .form-row{grid-template-columns:1fr;}
+  .foot-g{grid-template-columns:1fr;}
+  .foot-bot{flex-direction:column;gap:0.3rem;}
+  .three-imgs{grid-template-columns:1fr;}
+}
+</style>
+<style>body{padding-top:68px;background:#f8f7f4}.sim-wrap{max-width:1280px;margin:0 auto;padding:2rem 5%}</style>
+</head>
+<body>
+<a href="https://wa.me/32479635732?text=Bonjour,%20je%20souhaite%20recevoir%20un%20devis%20pour%20mon%20projet.%20Pouvez-vous%20me%20recontacter%20?" 
+   target="_blank" 
+   style="position:fixed; bottom:20px; right: 150px; /* J'ai augmenté la valeur de right pour le décaler à gauche */ z-index:10000; background:#25d366; border-radius:50px; padding:12px 22px; color:white; text-decoration:none; font-family:Arial, sans-serif; font-weight:bold; box-shadow: 0 4px 15px rgba(0,0,0,0.3); display:flex; align-items:center;">
+   <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" style="width:25px; margin-right:10px;">
+   Demander un devis
+</a>
+<nav>
+    <a href="index.html" class="nav-brand">SRL <span>KUS</span> ZEKERIYA</a>
+    <div class="nav-links" id="navLinks">
+        <a href="index.html">Accueil</a>
+        <a href="blog.html">Blog</a>
+        <a href="#simulateur">Simulateur</a>
+    <div class="dd">
+      <a href="#">Nos métiers ▾</a>
+      <div class="dd-menu">
+        <a href="plafonnage-traditionnel.html">Plafonnage traditionnel</a>
+        <a href="plafonnage-ancien.html">Plafonnage bâtiment ancien</a>
+        <a href="facade-traditionnelle.html">Façade traditionnelle</a>
+        <a href="facade-isolante.html">Façade isolante (crépi)</a>
+        <a href="cloisons-faux-plafonds.html">Cloisons &amp; faux-plafonds</a>
+        <a href="isolation-interieur.html">Isolation par l'intérieur</a>
+        <a href="peinture.html">Peinture intérieure &amp; extérieure</a>
+      </div>
+    </div>
+    <a href="index.html#realisations">Réalisations</a>
+    <a href="index.html#confiance">Avis clients</a>
+    <a href="index.html#contact">Contact</a>
+    <a href="https://www.facebook.com/profile.php?id=61577511924549" target="_blank" rel="noopener" title="Facebook" style="display:inline-flex;align-items:center;color:#1877F2!important;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+    <a href="https://www.trustup.be/fr/entreprise/kus-zekeriya" target="_blank" rel="noopener" title="Trustup" style="display:inline-flex;align-items:center;color:#F5C800!important;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;"><path d="M12 2L3 7v10l9 5 9-5V7L12 2zm0 2.18L19 8v8l-7 3.88L5 16V8l7-3.82z"/><path d="M12 7l-4 2.2v4.4L12 16l4-2.4V9.2L12 7zm0 2l2 1.1v2.6L12 14l-2-1.3V10.1L12 9z"/></svg></a>
+    <a href="index.html#contact" class="nav-cta">Devis gratuit</a>
+  </div>
+  <button class="nav-burger" onclick="toggleNav()" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<main>
+<section class="page-hero" style="background:#1a1a1a;">
+  <div class="page-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80');opacity:0.2"></div>
+  <div class="phc" style="padding:3.5rem 7% 2.5rem;">
+    <div class="ptag">OUTIL PRO</div>
+    <h1>Simulateur <em>de devis</em> instantané</h1>
+    <p class="psub">Calculez votre budget plafonnage, façade isolante, cloisons et peinture. Tarifs 2026 – Province de Luxembourg.</p>
+  </div>
+</section>
+<div class="sim-wrap" id="simulateur">
+
+<!-- ===== MODAL COORDONNÉES ===== -->
+<div id="coord-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm hidden items-center justify-center z-50 p-4">
+  <div class="bg-white rounded-2xl shadow-xl max-w-md w-full p-6">
+    <h3 class="text-xl font-bold mb-1">Coordonnées pour l'impression</h3>
+    <p class="text-sm text-slate-500 mb-4">Ces infos apparaîtront sur le devis imprimé et seront envoyées par email.</p>
+    <form id="coord-form" class="space-y-3">
+      <label class="flex items-center gap-2 text-sm mb-2 cursor-pointer">
+        <input type="checkbox" id="anon-check" class="w-4 h-4 rounded border-slate-300">
+        <span>Rester anonyme (ne pas enregistrer mes coordonnées)</span>
+      </label>
+      <div id="coord-fields" class="space-y-3">
+        <div>
+          <label class="text-sm text-slate-600">Nom du client</label>
+          <input name="nom" class="w-full mt-1 px-3 py-2 border rounded-lg" placeholder="Dupont Jean">
+        </div>
+        <div>
+          <label class="text-sm text-slate-600">Adresse du chantier</label>
+          <input name="adresse" class="w-full mt-1 px-3 py-2 border rounded-lg" placeholder="Rue... Bruxelles">
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="text-sm text-slate-600">Téléphone</label>
+            <input name="tel" class="w-full mt-1 px-3 py-2 border rounded-lg" placeholder="0470...">
+          </div>
+          <div>
+            <label class="text-sm text-slate-600">Email client</label>
+            <input type="email" name="email" class="w-full mt-1 px-3 py-2 border rounded-lg" placeholder="client@mail.be">
+          </div>
+        </div>
+      </div>
+      <div class="flex gap-2 pt-3">
+        <button type="button" id="coord-cancel" class="px-4 py-2 rounded-xl border border-slate-300 hover:bg-slate-50 font-medium">Annuler</button>
+        <button type="submit" class="px-4 py-2 rounded-xl bg-[#F5C800] text-black ml-auto font-medium hover:bg-[#D4A900]">Imprimer &amp; Envoyer</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- ===== PAGE PRINCIPALE ===== -->
+<div class="max-w-7xl mx-auto p-4 lg:p-8">
+
+  <header class="mb-8">
+    <div class="flex items-center gap-4">
+      <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#D4A900] to-[#F5C800] flex items-center justify-center text-white font-bold text-xl shadow-md">KUS</div>
+      <div>
+        <h1 class="text-2xl md:text-3xl font-bold text-slate-900 tracking-tight">SRL KUS ZEKERIYA — Simulateur de devis</h1>
+        <p class="text-slate-500">Plafonnage • Façades • Peinture — calcul instantané</p>
+      </div>
+    </div>
+    <div id="print-coords" class="hidden mt-6 p-4 border border-slate-300 rounded-xl bg-slate-50 text-sm">
+      <h3 class="font-semibold mb-2">Coordonnées chantier</h3>
+      <div id="print-coords-content" class="text-slate-700 whitespace-pre-line"></div>
+    </div>
+  </header>
+
+  <div class="space-y-6">
+
+    <!-- ===== POSTE 1 ===== -->
+    <section class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+      <div class="bg-gradient-to-r from-[#D4A900] to-[#F5C800] px-5 py-3.5">
+        <h2 class="text-white font-semibold tracking-wide">POSTE 1 – INTÉRIEUR : Plafonnage &amp; Isolation</h2>
+      </div>
+      <div class="p-4 md:p-5 overflow-x-auto">
+        <table class="w-full text-[14px]">
+          <thead class="text-xs uppercase text-slate-500 border-b">
+            <tr>
+              <th class="text-left font-medium py-2">Désignation</th>
+              <th class="w-16 text-center font-medium">Unité</th>
+              <th class="w-28 text-right font-medium">PU HTVA</th>
+              <th class="w-36 text-right font-medium">Quantité</th>
+              <th class="w-32 text-right font-medium">Total</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-100" id="p1-tbody">
+            <tr><td colspan="5" class="pt-4 pb-2"><span class="text-[11px] font-semibold uppercase tracking-wider text-[#D4A900]">A. Enduits intérieurs</span></td></tr>
+            <tr data-pu="17" class="hover:bg-slate-50/70">
+              <td class="py-2.5 pr-3">Enduit plâtre lisse – murs</td><td class="text-center text-slate-500">m²</td><td class="text-right text-slate-600">17,00 €</td>
+              <td class="text-right"><input type="number" min="0" step="1" placeholder="Quantité" class="qty w-28 text-right px-2.5 py-1.5 rounded-lg border border-slate-300"></td>
+              <td class="text-right font-medium total pl-3">0,00 €</td>
+            </tr>
+            <tr data-pu="21" class="hover:bg-slate-50/70">
+              <td class="py-2.5 pr-3">Enduit plâtre lisse – plafonds</td><td class="text-center text-slate-500">m²</td><td class="text-right text-slate-600">21,00 €</td>
+              <td class="text-right"><input type="number" min="0" step="1" placeholder="Quantité" class="qty w-28 text-right px-2.5 py-1.5 rounded-lg border border-slate-300"></td>
+              <td class="text-right font-medium total pl-3">0,00 €</td>
+            </tr>
+
+            <tr><td colspan="5" class="pt-4 pb-2"><span class="text-[11px] font-semibold uppercase tracking-wider text-[#D4A900]">B. Cloisons &amp; finitions</span></td></tr>
+            <tr data-pu="18" class="hover:bg-slate-50/70">
+              <td class="py-2.5 pr-3">Plaque de plâtre gyplat</td><td class="text-center text-slate-500">m²</td><td class="text-right text-slate-600">18,00 €</td>
+              <td class="text-right"><input type="number" min="0" step="1" placeholder="Quantité" class="qty w-28 text-right px-2.5 py-1.5 rounded-lg border border-slate-300"></td>
+              <td class="text-right font-medium total pl-3">0,00 €</td>
+            </tr>
+            <tr data-pu="8" class="hover:bg-slate-50/70">
+              <td class="py-2.5 pr-3">Cornière d'angle (renfort)</td><td class="text-center text-slate-500">ml</td><td class="text-right text-slate-600">8,00 €</td>
+              <td class="text-right"><input type="number" min="0" step="1" placeholder="Quantité" class="qty w-28 text-right px-2.5 py-1.5 rounded-lg border border-slate-300"></td>
+              <td class="text-right font-medium total pl-3">0,00 €</td>
+            </tr>
+            <tr data-pu="15" class="hover:bg-slate-50/70">
+              <td class="py-2.5 pr-3">Habillage plaque – tours de fenêtre</td><td class="text-center text-slate-500">ml</td><td class="text-right text-slate-600">15,00 €</td>
+              <td class="text-right"><input type="number" min="0" step="1" placeholder="Quantité" class="qty w-28 text-right px-2.5 py-1.5 rounded-lg border border-slate-300"></td>
+              <td class="text-right font-medium total pl-3">0,00 €</td>
+            </tr>
+            <tr data-pu="550" class="hover:bg-slate-50/70">
+              <td class="py-2.5 pr-3">Tablette de fenêtre Cat.1 (fourniture et pose)</td><td class="text-center text-slate-500">m²</td><td class="text-right text-slate-600">550,00 €</td>
+              <td class="text-right"><input type="number" min="0" step="1" placeholder="Quantité" class="qty w-28 text-right px-2.5 py-1.5 rounded-lg border border-slate-300"></td>
+              <td class="text-right font-medium total pl-3">0,00 €</td>
+            </tr>
+            <tr data-pu="5" class="hover:bg-slate-50/70">
+              <td class="py-2.5 pr-3">Pose APU sur châssis</td><td class="text-center text-slate-500">ml</td><td class="text-right text-slate-600">5,00 €</td>
+              <td class="text-right"><input type="number" min="0" step="1" placeholder="Quantité" class="qty w-28 text-right px-2.5 py-1.5 rounded-lg border border-slate-300"></td>
+              <td class="text-right font-medium total pl-3">0,00 €</td>
+            </tr>
+
+            <tr><td colspan="5" class="pt-4 pb-2"><span class="text-[11px] font-semibold uppercase tracking-wider text-[#D4A900]">C. Isolation &amp; ossature</span></td></tr>
+            <tr data-pu="16" class="hover:bg-slate-50/70">
+              <td class="py-2.5 pr-3">Lattage bois</td><td class="text-center text-slate-500">m²</td><td class="text-right text-slate-600">16,00 €</td>
+              <td class="text-right"><input type="number" min="0" step="1" placeholder="Quantité" class="qty w-28 text-right px-2.5 py-1.5 rounded-lg border border-slate-300"></td>
+              <td class="text-right font-medium total pl-3">0,00 €</td>
+            </tr>
+            <tr data-pu="28" class="hover:bg-slate-50/70">
+              <td class="py-2.5 pr-3">Chevronnage</td><td class="text-center text-slate-500">m²</td><td class="text-right text-slate-600">28,00 €</td>
+              <td class="text-right"><input type="number" min="0" step="1" placeholder="Quantité" class="qty w-28 text-right px-2.5 py-1.5 rounded-lg border border-slate-300"></td>
+              <td class="text-right font-medium total pl-3">0,00 €</td>
+            </tr>
+
+            <!-- Laine de verre : ligne spéciale, pas de data-pu sur le tr -->
+            <tr class="bg-blue-50/40 hover:bg-blue-50">
+              <td class="py-3 pr-3">
+                <div class="font-medium text-slate-800">Laine de verre</div>
+                <div class="flex items-center gap-2 mt-1.5">
+                  <span class="text-[11px] text-slate-500">Épaisseur</span>
+                  <input id="laine-ep" type="range" min="12" max="30" value="20" step="2" class="w-28 accent-blue-600">
+                  <span id="laine-ep-val" class="text-xs font-semibold text-[#D4A900] w-6 text-center">20</span>
+                  <span class="text-[11px] text-slate-500">cm</span>
+                </div>
+              </td>
+              <td class="text-center text-slate-500">m²</td>
+              <td class="text-right"><span id="laine-pu" class="text-slate-600">40,00 €</span></td>
+              <td class="text-right"><input id="laine-surface" type="number" min="0" step="1" placeholder="Quantité" class="w-28 text-right px-2.5 py-1.5 rounded-lg border border-slate-300"></td>
+              <td class="text-right font-medium"><span id="laine-total">0,00 €</span></td>
+            </tr>
+
+            <tr data-pu="14" class="hover:bg-slate-50/70">
+              <td class="py-2.5 pr-3">Pare-vapeur</td><td class="text-center text-slate-500">m²</td><td class="text-right text-slate-600">14,00 €</td>
+              <td class="text-right"><input type="number" min="0" step="1" placeholder="Quantité" class="qty w-28 text-right px-2.5 py-1.5 rounded-lg border border-slate-300"></td>
+              <td class="text-right font-medium total pl-3">0,00 €</td>
+            </tr>
+
+            <tr><td colspan="5" class="pt-4 pb-2"><span class="text-[11px] font-semibold uppercase tracking-wider text-[#D4A900]">D. Préparations</span></td></tr>
+            <tr data-pu="5" class="hover:bg-slate-50/70">
+              <td class="py-2.5 pr-3">Primaire d'accrochage (Ytong/béton)</td><td class="text-center text-slate-500">m²</td><td class="text-right text-slate-600">5,00 €</td>
+              <td class="text-right"><input type="number" min="0" step="1" placeholder="Quantité" class="qty w-28 text-right px-2.5 py-1.5 rounded-lg border border-slate-300"></td>
+              <td class="text-right font-medium total pl-3">0,00 €</td>
+            </tr>
+            <tr data-pu="25" class="hover:bg-slate-50/70">
+              <td class="py-2.5 pr-3">Traitement poutrelle métallique</td><td class="text-center text-slate-500">ml</td><td class="text-right text-slate-600">25,00 €</td>
+              <td class="text-right"><input type="number" min="0" step="1" placeholder="Quantité" class="qty w-28 text-right px-2.5 py-1.5 rounded-lg border border-slate-300"></td>
+              <td class="text-right font-medium total pl-3">0,00 €</td>
+            </tr>
+          </tbody>
+          <tfoot class="border-t">
+            <tr><td colspan="4" class="text-right py-3 font-medium pr-3">Sous-total Poste 1</td><td class="text-right font-semibold" id="p1-total">0,00 €</td></tr>
+          </tfoot>
+        </table>
+      </div>
+    </section>
+
+    <!-- ===== POSTE 2 ===== -->
+    <section class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+      <div class="bg-gradient-to-r from-[#D4A900] to-[#F5C800] px-5 py-3.5">
+        <h2 class="text-white font-semibold tracking-wide">POSTE 2 – FAÇADE TRADITIONNELLE</h2>
+      </div>
+      <div class="p-4 md:p-5 overflow-x-auto">
+        <table class="w-full text-[14px]">
+          <thead class="text-xs uppercase text-slate-500 border-b">
+            <tr>
+              <th class="text-left font-medium py-2">Désignation</th><th class="w-16 text-center">Unité</th>
+              <th class="w-28 text-right">PU HTVA</th><th class="w-36 text-right">Quantité</th><th class="w-32 text-right">Total</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-100" id="p2-tbody">
+            <tr data-pu="75" class="hover:bg-slate-50/70">
+              <td class="py-2.5 pr-3">Façade traditionnelle cimentage crépis</td><td class="text-center text-slate-500">m²</td><td class="text-right text-slate-600">75,00 €</td>
+              <td class="text-right"><input type="number" min="0" step="1" placeholder="Quantité" class="qty w-28 text-right px-2.5 py-1.5 rounded-lg border border-slate-300"></td>
+              <td class="text-right font-medium total">0,00 €</td>
+            </tr>
+            <tr data-pu="10" class="hover:bg-slate-50/70">
+              <td class="py-2.5 pr-3">Treillis intégral (option)</td><td class="text-center text-slate-500">m²</td><td class="text-right text-slate-600">10,00 €</td>
+              <td class="text-right"><input type="number" min="0" step="1" placeholder="Quantité" class="qty w-28 text-right px-2.5 py-1.5 rounded-lg border border-slate-300"></td>
+              <td class="text-right font-medium total">0,00 €</td>
+            </tr>
+            <tr data-pu="1000" class="forfait-row hover:bg-slate-50/70">
+              <td class="py-2.5 pr-3">
+                <label class="flex items-center gap-2 cursor-pointer">
+                  <input type="checkbox" class="forfait-check w-4 h-4 text-[#D4A900] rounded border-slate-300">
+                  <span>Forfait sous-bassement étanche (fortement conseillé)</span>
+                </label>
+              </td>
+              <td class="text-center text-slate-500">U</td><td class="text-right text-slate-600">1 000,00 €</td>
+              <td class="text-right text-slate-400">—</td>
+              <td class="text-right font-medium total">0,00 €</td>
+            </tr>
+          </tbody>
+          <tfoot class="border-t">
+            <tr><td colspan="4" class="text-right py-3 font-medium pr-3">Sous-total Poste 2</td><td class="text-right font-semibold" id="p2-total">0,00 €</td></tr>
+          </tfoot>
+        </table>
+      </div>
+    </section>
+
+    <!-- ===== POSTE 3 ===== -->
+    <section class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+      <div class="bg-gradient-to-r from-[#D4A900] to-[#F5C800] px-5 py-3.5">
+        <h2 class="text-white font-semibold tracking-wide">POSTE 3 – FAÇADE ISOLANTE</h2>
+      </div>
+      <div class="p-5">
+        <div class="grid md:grid-cols-12 gap-4 items-end">
+          <div class="md:col-span-4">
+            <label class="block text-sm text-slate-600 mb-1">Surface (m²)</label>
+            <input id="iso-surface" type="number" min="0" step="1" placeholder="Quantité" class="w-full px-3 py-2.5 rounded-xl border border-slate-300 outline-none text-right">
+          </div>
+          <div class="md:col-span-5">
+            <label class="block text-sm text-slate-600 mb-1">Épaisseur isolant (10–30 cm)</label>
+            <div class="flex items-center gap-3">
+              <input id="iso-ep" type="range" min="10" max="30" value="20" step="2" class="w-full accent-blue-600">
+              <span id="iso-ep-val" class="w-10 text-center font-semibold text-[#D4A900]">20</span>
+            </div>
+          </div>
+          <div class="md:col-span-3 bg-blue-50 rounded-xl p-3 border border-blue-100">
+            <div class="text-xs text-slate-600">PU calculé</div>
+            <div id="iso-pu" class="text-lg font-semibold text-[#D4A900]">140,00 € / m²</div>
+            <div id="iso-pu-formula" class="text-[11px] text-slate-500">Épaisseur : 20 cm</div>
+          </div>
+        </div>
+        <div class="mt-4 flex justify-between items-center pt-4 border-t">
+          <span class="text-slate-600">Total façade isolante</span>
+          <span id="iso-total" class="text-lg font-semibold">0,00 €</span>
+        </div>
+
+        <div class="mt-6 pt-5 border-t border-dashed">
+          <div class="flex flex-wrap items-end gap-3">
+            <div>
+              <div class="flex items-center gap-2 mb-1">
+                <input id="iso-supp-check" type="checkbox" class="w-4 h-4 text-[#D4A900] rounded border-slate-300">
+                <label for="iso-supp-check" class="text-sm text-slate-600 cursor-pointer">Supplément haute densité pour sous-bassement (10,00 €/m²)</label>
+              </div>
+              <div class="flex items-center gap-2">
+                <input id="iso-supp-qty" type="number" min="0" step="1" placeholder="Quantité" class="w-28 px-3 py-2.5 rounded-xl border border-slate-300 text-right disabled:opacity-50" disabled>
+                <span class="text-sm text-slate-500">m²</span>
+              </div>
+            </div>
+            <button id="iso-use-surface" type="button" class="no-print px-3 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm font-medium">Utiliser la surface</button>
+            <div class="ml-auto text-right">
+              <div class="text-xs text-slate-500">Total supplément</div>
+              <div id="iso-supp-total" class="font-semibold">0,00 €</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-6 pt-5 border-t border-dashed">
+          <div class="flex flex-wrap items-end gap-3">
+            <div class="flex items-center gap-2">
+              <input id="iso-forfait-check" type="checkbox" class="w-4 h-4 text-[#D4A900] rounded border-slate-300">
+              <label for="iso-forfait-check" class="text-sm text-slate-600 cursor-pointer">Forfait sous-bassement étanche (fortement conseillé) – 1 000,00 €</label>
+            </div>
+            <div class="ml-auto text-right">
+              <div class="text-xs text-slate-500">Total forfait</div>
+              <div id="iso-forfait-total" class="font-semibold">0,00 €</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-6 flex justify-between items-center pt-4 border-t-2">
+          <span class="font-medium">Sous-total Poste 3</span>
+          <span id="p3-total" class="text-lg font-bold text-slate-900">0,00 €</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== POSTE 4 ===== -->
+    <section class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+      <div class="bg-gradient-to-r from-[#D4A900] to-[#F5C800] px-5 py-3.5">
+        <h2 class="text-white font-semibold tracking-wide">POSTE 4 – PEINTURE</h2>
+      </div>
+      <div class="p-4 md:p-5 overflow-x-auto">
+        <table class="w-full text-[14px]">
+          <thead class="text-xs uppercase text-slate-500 border-b">
+            <tr>
+              <th class="text-left font-medium py-2">Désignation</th><th class="w-16 text-center">Unité</th>
+              <th class="w-28 text-right">PU HTVA</th><th class="w-36 text-right">Quantité</th><th class="w-32 text-right">Total</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-100" id="p4-tbody">
+            <tr data-pu="45" class="hover:bg-slate-50/70">
+              <td class="py-2.5 pr-3">Lavage haute pression, peinture 2 couches</td><td class="text-center text-slate-500">m²</td><td class="text-right text-slate-600">45,00 €</td>
+              <td class="text-right"><input type="number" min="0" step="1" placeholder="Quantité" class="qty w-28 text-right px-2.5 py-1.5 rounded-lg border border-slate-300"></td>
+              <td class="text-right font-medium total">0,00 €</td>
+            </tr>
+            <tr data-pu="5" class="hover:bg-slate-50/70">
+              <td class="py-2.5 pr-3">Pose couche fond fixateur</td><td class="text-center text-slate-500">m²</td><td class="text-right text-slate-600">5,00 €</td>
+              <td class="text-right"><input type="number" min="0" step="1" placeholder="Quantité" class="qty w-28 text-right px-2.5 py-1.5 rounded-lg border border-slate-300"></td>
+              <td class="text-right font-medium total">0,00 €</td>
+            </tr>
+            <tr data-pu="1000" class="forfait-row hover:bg-slate-50/70">
+              <td class="py-2.5 pr-3">
+                <label class="flex items-center gap-2 cursor-pointer">
+                  <input type="checkbox" class="forfait-check w-4 h-4 text-[#D4A900] rounded border-slate-300">
+                  <span>Forfait sous-bassement étanche (fortement conseillé)</span>
+                </label>
+              </td>
+              <td class="text-center text-slate-500">U</td><td class="text-right text-slate-600">1 000,00 €</td>
+              <td class="text-right text-slate-400">—</td>
+              <td class="text-right font-medium total">0,00 €</td>
+            </tr>
+          </tbody>
+          <tfoot class="border-t">
+            <tr><td colspan="4" class="text-right py-3 font-medium pr-3">Sous-total Poste 4</td><td class="text-right font-semibold" id="p4-total">0,00 €</td></tr>
+          </tfoot>
+        </table>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- ===== RÉCAPITULATIF ===== -->
+  <aside class="mt-8">
+    <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+      <div class="px-5 py-4 border-b bg-slate-50">
+        <h3 class="font-semibold text-slate-900">Récapitulatif</h3>
+      </div>
+      <div class="p-5 space-y-3 text-[15px]">
+        <div id="r-p1-wrap" class="hidden flex justify-between"><span class="text-slate-600">Poste 1 – Plafonnage</span><span id="r-p1" class="font-medium">0,00 €</span></div>
+        <div id="r-p2-wrap" class="hidden flex justify-between"><span class="text-slate-600">Poste 2 – Façade traditionnelle</span><span id="r-p2" class="font-medium">0,00 €</span></div>
+        <div id="r-p3-wrap" class="hidden flex justify-between"><span class="text-slate-600">Poste 3 – Façade isolante</span><span id="r-p3" class="font-medium">0,00 €</span></div>
+        <div id="r-p4-wrap" class="hidden flex justify-between"><span class="text-slate-600">Poste 4 – Peinture</span><span id="r-p4" class="font-medium">0,00 €</span></div>
+
+        <div class="flex justify-between pt-3 border-t">
+          <span class="text-slate-700">Sous-total travaux HT</span><span id="r-soustotal" class="font-semibold">0,00 €</span>
+        </div>
+        <div class="flex justify-between">
+          <span class="text-slate-600">Participation déchets</span><span id="r-participation" class="font-medium">0,00 €</span>
+        </div>
+        <div class="flex justify-between pt-3 border-t text-base">
+          <span class="font-semibold">Total HT</span><span id="r-ht" class="font-bold">0,00 €</span>
+        </div>
+
+        <div class="pt-4">
+          <div class="text-xs uppercase text-slate-500 mb-2">TVA</div>
+          <div class="grid grid-cols-2 gap-2 no-print">
+            <button data-tva="0.06" class="tva-btn px-3 py-2.5 rounded-xl border-2 border-slate-300 bg-white font-medium hover:bg-slate-50 transition">TVA 6 %</button>
+            <button data-tva="0.21" class="tva-btn active px-3 py-2.5 rounded-xl border-2 border-[#F5C800] bg-[#F5C800] text-black font-medium transition">TVA 21 %</button>
+          </div>
+          <div class="flex justify-between mt-3">
+            <span class="text-slate-600">Montant TVA</span><span id="r-tva" class="font-medium">0,00 €</span>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between mt-3 pt-3 border-t">
+          <label class="flex items-center gap-2 text-slate-600 cursor-pointer">
+            <input id="rc10-check" type="checkbox" class="w-4 h-4 text-[#D4A900] rounded border-slate-300">
+            <span>Responsabilité civile décennale</span>
+          </label>
+          <span id="r-rc10" class="font-medium">0,00 €</span>
+        </div>
+
+        <div class="flex justify-between items-baseline pt-4 border-t mt-4">
+          <span class="text-lg font-bold">Total TTC</span>
+          <span id="r-ttc" class="text-[28px] leading-none font-extrabold text-[#D4A900]">0,00 €</span>
+        </div>
+      </div>
+
+      <div class="px-5 py-4 bg-slate-50 border-t flex gap-2 no-print">
+        <button id="btn-reset" class="px-4 py-2.5 rounded-xl border border-slate-300 hover:bg-white font-medium">Réinitialiser</button>
+        <button id="btn-print" class="px-4 py-2.5 rounded-xl bg-slate-900 text-white font-medium hover:bg-black ml-auto">Imprimer / PDF</button>
+      </div>
+    </div>
+    <p class="text-[11px] text-slate-500 mt-3 px-1 leading-snug">Prix HTVA. Participation déchets : 75 € de base, +75 € par tranche de 5 000 € HT entamée.</p>
+  </aside>
+
+</div>
+
+<script>
+// =============================================
+// CONFIG
+// =============================================
+const WEB3FORMS_KEY = 'ae4eb122-5f56-4f5e-babd-91b18fd7d418';
+
+// =============================================
+// FORMAT MONÉTAIRE
+// =============================================
+const fmt = n => new Intl.NumberFormat('fr-BE', {
+  style: 'currency', currency: 'EUR', minimumFractionDigits: 2
+}).format(n || 0);
+
+// =============================================
+// CALCUL PRINCIPAL
+// =============================================
+function calc() {
+
+  // --- POSTE 1 : lignes avec data-pu + .qty ---
+  let p1 = 0;
+  document.querySelectorAll('#p1-tbody tr[data-pu]').forEach(tr => {
+    const qty = parseFloat(tr.querySelector('.qty')?.value) || 0;
+    const pu  = parseFloat(tr.dataset.pu) || 0;
+    const tot = qty * pu;
+    const cell = tr.querySelector('.total');
+    if (cell) cell.textContent = fmt(tot);
+    p1 += tot;
+  });
+
+  // Laine de verre : ligne spéciale sans data-pu
+  const laineEp      = parseInt(document.getElementById('laine-ep').value) || 20;
+  const laineSurface = parseFloat(document.getElementById('laine-surface').value) || 0;
+  const delta        = laineEp - 20;
+  const puLaine      = 40 + (delta >= 0 ? delta * 2 : delta);
+  const totalLaine   = laineSurface * puLaine;
+  document.getElementById('laine-ep-val').textContent = laineEp;
+  document.getElementById('laine-pu').textContent     = fmt(puLaine);
+  document.getElementById('laine-total').textContent  = fmt(totalLaine);
+  p1 += totalLaine;
+
+  document.getElementById('p1-total').textContent = fmt(p1);
+  document.getElementById('r-p1').textContent     = fmt(p1);
+
+  // --- POSTE 2 ---
+  let p2 = 0;
+  document.querySelectorAll('#p2-tbody tr[data-pu]').forEach(tr => {
+    let qty;
+    if (tr.classList.contains('forfait-row')) {
+      qty = tr.querySelector('.forfait-check')?.checked ? 1 : 0;
+    } else {
+      qty = parseFloat(tr.querySelector('.qty')?.value) || 0;
+    }
+    const pu  = parseFloat(tr.dataset.pu) || 0;
+    const tot = qty * pu;
+    const cell = tr.querySelector('.total');
+    if (cell) cell.textContent = fmt(tot);
+    p2 += tot;
+  });
+  document.getElementById('p2-total').textContent = fmt(p2);
+  document.getElementById('r-p2').textContent     = fmt(p2);
+
+  // --- POSTE 3 ---
+  const isoSurface    = parseFloat(document.getElementById('iso-surface').value) || 0;
+  const isoEp         = parseInt(document.getElementById('iso-ep').value) || 20;
+  const puIso         = 140 + (isoEp - 20);
+  const totalIso      = isoSurface * puIso;
+  document.getElementById('iso-ep-val').textContent     = isoEp;
+  document.getElementById('iso-pu').textContent         = fmt(puIso) + ' / m²';
+  document.getElementById('iso-pu-formula').textContent = 'Épaisseur : ' + isoEp + ' cm';
+  document.getElementById('iso-total').textContent      = fmt(totalIso);
+
+  const suppCheck  = document.getElementById('iso-supp-check');
+  const suppInput  = document.getElementById('iso-supp-qty');
+  suppInput.disabled = !suppCheck.checked;
+  const suppQty    = suppCheck.checked ? (parseFloat(suppInput.value) || 0) : 0;
+  const totalSupp  = suppQty * 10;
+  document.getElementById('iso-supp-total').textContent = fmt(totalSupp);
+
+  const forfaitChecked = document.getElementById('iso-forfait-check').checked;
+  const totalForfait   = forfaitChecked ? 1000 : 0;
+  document.getElementById('iso-forfait-total').textContent = fmt(totalForfait);
+
+  const p3 = totalIso + totalSupp + totalForfait;
+  document.getElementById('p3-total').textContent = fmt(p3);
+  document.getElementById('r-p3').textContent     = fmt(p3);
+
+  // --- POSTE 4 ---
+  let p4 = 0;
+  document.querySelectorAll('#p4-tbody tr[data-pu]').forEach(tr => {
+    let qty;
+    if (tr.classList.contains('forfait-row')) {
+      qty = tr.querySelector('.forfait-check')?.checked ? 1 : 0;
+    } else {
+      qty = parseFloat(tr.querySelector('.qty')?.value) || 0;
+    }
+    const pu  = parseFloat(tr.dataset.pu) || 0;
+    const tot = qty * pu;
+    const cell = tr.querySelector('.total');
+    if (cell) cell.textContent = fmt(tot);
+    p4 += tot;
+  });
+  document.getElementById('p4-total').textContent = fmt(p4);
+  document.getElementById('r-p4').textContent     = fmt(p4);
+
+  // --- Visibilité récap ---
+  document.getElementById('r-p1-wrap').style.display = p1 > 0 ? 'flex' : 'none';
+  document.getElementById('r-p2-wrap').style.display = p2 > 0 ? 'flex' : 'none';
+  document.getElementById('r-p3-wrap').style.display = p3 > 0 ? 'flex' : 'none';
+  document.getElementById('r-p4-wrap').style.display = p4 > 0 ? 'flex' : 'none';
+
+  // --- Totaux ---
+  const sousTotal      = p1 + p2 + p3 + p4;
+  const participation  = sousTotal > 0 ? Math.max(75, Math.ceil(sousTotal / 5000) * 75) : 0;
+  const totalHT        = sousTotal + participation;
+
+  document.getElementById('r-soustotal').textContent     = fmt(sousTotal);
+  document.getElementById('r-participation').textContent = fmt(participation);
+  document.getElementById('r-ht').textContent            = fmt(totalHT);
+
+  // TVA
+  const tvaBtn       = document.querySelector('.tva-btn.active');
+  const taux         = parseFloat(tvaBtn?.dataset.tva) || 0.21;
+  const montantTVA   = totalHT * taux;
+  const totalTTCBase = totalHT + montantTVA;
+  document.getElementById('r-tva').textContent = fmt(montantTVA);
+
+  // RC décennale
+  const rcChecked = document.getElementById('rc10-check').checked;
+  const rcAmount  = rcChecked ? totalTTCBase * 17.16 / 1000 : 0;
+  document.getElementById('r-rc10').textContent = fmt(rcAmount);
+
+  document.getElementById('r-ttc').textContent = fmt(totalTTCBase + rcAmount);
+}
+
+// =============================================
+// ÉVÉNEMENTS
+// =============================================
+document.addEventListener('input',  e => { if (e.target.tagName === 'INPUT') calc(); });
+document.addEventListener('change', e => { if (e.target.tagName === 'INPUT') calc(); });
+
+document.querySelectorAll('.tva-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tva-btn').forEach(b => {
+      b.classList.remove('active', 'bg-[#F5C800]', 'text-white', 'border-[#F5C800]');
+      b.classList.add('bg-white', 'border-slate-300');
+    });
+    btn.classList.add('active', 'bg-[#F5C800]', 'text-white', 'border-[#F5C800]');
+    btn.classList.remove('bg-white', 'border-slate-300');
+    calc();
+  });
+});
+
+document.getElementById('iso-use-surface').addEventListener('click', () => {
+  document.getElementById('iso-supp-check').checked = true;
+  document.getElementById('iso-supp-qty').value = document.getElementById('iso-surface').value || 0;
+  calc();
+});
+
+document.getElementById('btn-reset').addEventListener('click', () => {
+  document.querySelectorAll('input[type=number]').forEach(i => i.value = '');
+  document.querySelectorAll('input[type=checkbox]').forEach(c => c.checked = false);
+  document.getElementById('iso-ep').value   = 20;
+  document.getElementById('laine-ep').value = 20;
+  document.querySelectorAll('.tva-btn').forEach(b => {
+    b.classList.remove('active', 'bg-[#F5C800]', 'text-white', 'border-[#F5C800]');
+    b.classList.add('bg-white', 'border-slate-300');
+  });
+  const btn21 = document.querySelector('.tva-btn[data-tva="0.21"]');
+  btn21.classList.add('active', 'bg-[#F5C800]', 'text-white', 'border-[#F5C800]');
+  btn21.classList.remove('bg-white', 'border-slate-300');
+  calc();
+});
+
+// =============================================
+// MODAL IMPRESSION
+// =============================================
+const modal       = document.getElementById('coord-modal');
+const coordForm   = document.getElementById('coord-form');
+const anonCheck   = document.getElementById('anon-check');
+const coordFields = document.getElementById('coord-fields');
+
+document.getElementById('btn-print').addEventListener('click', () => {
+  modal.classList.remove('hidden');
+  modal.classList.add('flex');
+});
+
+document.getElementById('coord-cancel').addEventListener('click', () => {
+  modal.classList.add('hidden');
+  modal.classList.remove('flex');
+});
+
+modal.addEventListener('click', e => {
+  if (e.target === modal) {
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+  }
+});
+
+anonCheck.addEventListener('change', () => {
+  coordFields.style.opacity = anonCheck.checked ? '0.4' : '1';
+  coordFields.querySelectorAll('input').forEach(i => i.disabled = anonCheck.checked);
+});
+
+coordForm.addEventListener('submit', async e => {
+  e.preventDefault();
+  const data    = Object.fromEntries(new FormData(coordForm).entries());
+  const isAnon  = anonCheck.checked;
+  const nom     = isAnon ? 'Anonyme' : (data.nom     || '-');
+  const adresse = isAnon ? '-'       : (data.adresse || '-');
+  const tel     = isAnon ? '-'       : (data.tel     || '-');
+  const email   = isAnon ? '-'       : (data.email   || '-');
+
+  const coordsText = 'Client : ' + nom + '\nAdresse : ' + adresse + '\nTél : ' + tel + '\nEmail : ' + email + '\nDate : ' + new Date().toLocaleDateString('fr-BE');
+  document.getElementById('print-coords-content').textContent = coordsText;
+  document.getElementById('print-coords').classList.remove('hidden');
+
+  modal.classList.add('hidden');
+  modal.classList.remove('flex');
+  setTimeout(() => window.print(), 300);
+
+  try {
+    await fetch('https://api.web3forms.com/submit', {
+      method : 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body   : JSON.stringify({
+        access_key      : WEB3FORMS_KEY,
+        subject         : 'Nouveau devis – ' + nom,
+        from_name       : 'Simulateur Devis KUS',
+        nom_client      : nom,
+        adresse_chantier: adresse,
+        telephone       : tel,
+        email_client    : email,
+        anonyme         : isAnon ? 'oui' : 'non',
+        total_ht        : document.getElementById('r-ht').textContent,
+        total_ttc       : document.getElementById('r-ttc').textContent,
+        poste1          : document.getElementById('r-p1').textContent,
+        poste2          : document.getElementById('r-p2').textContent,
+        poste3          : document.getElementById('r-p3').textContent,
+        poste4          : document.getElementById('r-p4').textContent,
+        message         : coordsText + '\n\nDevis généré automatiquement.'
+      })
+    });
+  } catch(err) {
+    console.error('Erreur envoi Web3Forms', err);
+  }
+});
+
+// =============================================
+// INIT
+// =============================================
+calc();
+</script>
+</div>
+</main>
+<footer>
+  <div class="foot-g">
+    <div>
+      <div class="foot-brand">SRL KUS ZEKERIYA</div>
+      <p class="foot-desc">Plafonneur &amp; spécialiste façades depuis 25 ans en Province de Luxembourg. Plafonnage, façades isolantes, façades traditionnelles, cloisons, isolation et peinture.</p>
+      <div style="display:flex;gap:0.7rem;margin-top:1.2rem;flex-wrap:wrap;">
+        <a href="https://www.facebook.com/profile.php?id=61577511924549" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:0.45rem;background:#1877F2;color:#fff;padding:0.4rem 0.85rem;border-radius:6px;font-size:0.77rem;font-weight:700;text-decoration:none;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg> Facebook</a>
+        <a href="https://www.trustup.be/fr/entreprise/kus-zekeriya" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:0.45rem;background:#F5C800;color:#1a1a1a;padding:0.4rem 0.85rem;border-radius:6px;font-size:0.77rem;font-weight:700;text-decoration:none;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;"><path d="M12 2L3 7v10l9 5 9-5V7L12 2zm0 2.18L19 8v8l-7 3.88L5 16V8l7-3.82z"/><path d="M12 7l-4 2.2v4.4L12 16l4-2.4V9.2L12 7zm0 2l2 1.1v2.6L12 14l-2-1.3V10.1L12 9z"/></svg> Trustup</a>
+      </div>
+    </div>
+    <div class="foot-col"><h4>Nos métiers</h4><div class="foot-links">
+      <a href="plafonnage-traditionnel.html">Plafonnage traditionnel</a>
+      <a href="plafonnage-ancien.html">Plafonnage bâtiment ancien</a>
+      <a href="facade-traditionnelle.html">Façade traditionnelle</a>
+      <a href="facade-isolante.html">Façade isolante</a>
+      <a href="cloisons-faux-plafonds.html">Cloisons &amp; faux-plafonds</a>
+      <a href="isolation-interieur.html">Isolation intérieure</a>
+      <a href="peinture.html">Peinture</a>
+    </div></div>
+    <div class="foot-col"><h4>Navigation</h4><div class="foot-links">
+      <a href="index.html">Accueil</a>
+      <a href="index.html#realisations">Réalisations</a>
+      <a href="index.html#zones">Zone d'intervention</a>
+      <a href="index.html#confiance">Avis clients</a>
+      <a href="index.html#contact">Devis gratuit</a>
+    </div></div>
+    <div class="foot-col"><h4>Contact &amp; réseaux</h4><div class="foot-links">
+      <a href="tel:+32479635732">+32 479 63 57 32</a>
+      <a href="mailto:zekelux@hotmail.com">zekelux@hotmail.com</a>
+      <a>Vaux-sur-Sûre, 6640</a>
+      <a>TVA: BE 1005336605</a>
+      <a href="https://www.facebook.com/profile.php?id=61577511924549" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:0.4rem;color:#1877F2!important;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg> Notre Facebook</a>
+      <a href="https://www.trustup.be/fr/entreprise/kus-zekeriya" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:0.4rem;color:#F5C800!important;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;"><path d="M12 2L3 7v10l9 5 9-5V7L12 2zm0 2.18L19 8v8l-7 3.88L5 16V8l7-3.82z"/><path d="M12 7l-4 2.2v4.4L12 16l4-2.4V9.2L12 7zm0 2l2 1.1v2.6L12 14l-2-1.3V10.1L12 9z"/></svg> Notre Trustup</a>
+    </div></div>
+  </div>
+  <div class="foot-bot"><span>© 2026 SRL KUS ZEKERIYA — Tous droits réservés</span><span>Plafonneur · Façade · Crépis · Province de Luxembourg</span></div>
+</footer>
+<script>function toggleNav(){const n=document.getElementById('navLinks');if(n){n.style.display=n.style.display==='flex'?'none':'flex';}}</script>
+<script>
+// =============================================
+// CONFIG
+// =============================================
+const WEB3FORMS_KEY = 'ae4eb122-5f56-4f5e-babd-91b18fd7d418';
+
+// =============================================
+// FORMAT MONÉTAIRE
+// =============================================
+const fmt = n => new Intl.NumberFormat('fr-BE', {
+  style: 'currency', currency: 'EUR', minimumFractionDigits: 2
+}).format(n || 0);
+
+// =============================================
+// CALCUL PRINCIPAL
+// =============================================
+function calc() {
+
+  // --- POSTE 1 : lignes avec data-pu + .qty ---
+  let p1 = 0;
+  document.querySelectorAll('#p1-tbody tr[data-pu]').forEach(tr => {
+    const qty = parseFloat(tr.querySelector('.qty')?.value) || 0;
+    const pu  = parseFloat(tr.dataset.pu) || 0;
+    const tot = qty * pu;
+    const cell = tr.querySelector('.total');
+    if (cell) cell.textContent = fmt(tot);
+    p1 += tot;
+  });
+
+  // Laine de verre : ligne spéciale sans data-pu
+  const laineEp      = parseInt(document.getElementById('laine-ep').value) || 20;
+  const laineSurface = parseFloat(document.getElementById('laine-surface').value) || 0;
+  const delta        = laineEp - 20;
+  const puLaine      = 40 + (delta >= 0 ? delta * 2 : delta);
+  const totalLaine   = laineSurface * puLaine;
+  document.getElementById('laine-ep-val').textContent = laineEp;
+  document.getElementById('laine-pu').textContent     = fmt(puLaine);
+  document.getElementById('laine-total').textContent  = fmt(totalLaine);
+  p1 += totalLaine;
+
+  document.getElementById('p1-total').textContent = fmt(p1);
+  document.getElementById('r-p1').textContent     = fmt(p1);
+
+  // --- POSTE 2 ---
+  let p2 = 0;
+  document.querySelectorAll('#p2-tbody tr[data-pu]').forEach(tr => {
+    let qty;
+    if (tr.classList.contains('forfait-row')) {
+      qty = tr.querySelector('.forfait-check')?.checked ? 1 : 0;
+    } else {
+      qty = parseFloat(tr.querySelector('.qty')?.value) || 0;
+    }
+    const pu  = parseFloat(tr.dataset.pu) || 0;
+    const tot = qty * pu;
+    const cell = tr.querySelector('.total');
+    if (cell) cell.textContent = fmt(tot);
+    p2 += tot;
+  });
+  document.getElementById('p2-total').textContent = fmt(p2);
+  document.getElementById('r-p2').textContent     = fmt(p2);
+
+  // --- POSTE 3 ---
+  const isoSurface    = parseFloat(document.getElementById('iso-surface').value) || 0;
+  const isoEp         = parseInt(document.getElementById('iso-ep').value) || 20;
+  const puIso         = 140 + (isoEp - 20);
+  const totalIso      = isoSurface * puIso;
+  document.getElementById('iso-ep-val').textContent     = isoEp;
+  document.getElementById('iso-pu').textContent         = fmt(puIso) + ' / m²';
+  document.getElementById('iso-pu-formula').textContent = 'Épaisseur : ' + isoEp + ' cm';
+  document.getElementById('iso-total').textContent      = fmt(totalIso);
+
+  const suppCheck  = document.getElementById('iso-supp-check');
+  const suppInput  = document.getElementById('iso-supp-qty');
+  suppInput.disabled = !suppCheck.checked;
+  const suppQty    = suppCheck.checked ? (parseFloat(suppInput.value) || 0) : 0;
+  const totalSupp  = suppQty * 10;
+  document.getElementById('iso-supp-total').textContent = fmt(totalSupp);
+
+  const forfaitChecked = document.getElementById('iso-forfait-check').checked;
+  const totalForfait   = forfaitChecked ? 1000 : 0;
+  document.getElementById('iso-forfait-total').textContent = fmt(totalForfait);
+
+  const p3 = totalIso + totalSupp + totalForfait;
+  document.getElementById('p3-total').textContent = fmt(p3);
+  document.getElementById('r-p3').textContent     = fmt(p3);
+
+  // --- POSTE 4 ---
+  let p4 = 0;
+  document.querySelectorAll('#p4-tbody tr[data-pu]').forEach(tr => {
+    let qty;
+    if (tr.classList.contains('forfait-row')) {
+      qty = tr.querySelector('.forfait-check')?.checked ? 1 : 0;
+    } else {
+      qty = parseFloat(tr.querySelector('.qty')?.value) || 0;
+    }
+    const pu  = parseFloat(tr.dataset.pu) || 0;
+    const tot = qty * pu;
+    const cell = tr.querySelector('.total');
+    if (cell) cell.textContent = fmt(tot);
+    p4 += tot;
+  });
+  document.getElementById('p4-total').textContent = fmt(p4);
+  document.getElementById('r-p4').textContent     = fmt(p4);
+
+  // --- Visibilité récap ---
+  document.getElementById('r-p1-wrap').style.display = p1 > 0 ? 'flex' : 'none';
+  document.getElementById('r-p2-wrap').style.display = p2 > 0 ? 'flex' : 'none';
+  document.getElementById('r-p3-wrap').style.display = p3 > 0 ? 'flex' : 'none';
+  document.getElementById('r-p4-wrap').style.display = p4 > 0 ? 'flex' : 'none';
+
+  // --- Totaux ---
+  const sousTotal      = p1 + p2 + p3 + p4;
+  const participation  = sousTotal > 0 ? Math.max(75, Math.ceil(sousTotal / 5000) * 75) : 0;
+  const totalHT        = sousTotal + participation;
+
+  document.getElementById('r-soustotal').textContent     = fmt(sousTotal);
+  document.getElementById('r-participation').textContent = fmt(participation);
+  document.getElementById('r-ht').textContent            = fmt(totalHT);
+
+  // TVA
+  const tvaBtn       = document.querySelector('.tva-btn.active');
+  const taux         = parseFloat(tvaBtn?.dataset.tva) || 0.21;
+  const montantTVA   = totalHT * taux;
+  const totalTTCBase = totalHT + montantTVA;
+  document.getElementById('r-tva').textContent = fmt(montantTVA);
+
+  // RC décennale
+  const rcChecked = document.getElementById('rc10-check').checked;
+  const rcAmount  = rcChecked ? totalTTCBase * 17.16 / 1000 : 0;
+  document.getElementById('r-rc10').textContent = fmt(rcAmount);
+
+  document.getElementById('r-ttc').textContent = fmt(totalTTCBase + rcAmount);
+}
+
+// =============================================
+// ÉVÉNEMENTS
+// =============================================
+document.addEventListener('input',  e => { if (e.target.tagName === 'INPUT') calc(); });
+document.addEventListener('change', e => { if (e.target.tagName === 'INPUT') calc(); });
+
+document.querySelectorAll('.tva-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tva-btn').forEach(b => {
+      b.classList.remove('active', 'bg-[#F5C800]', 'text-white', 'border-[#F5C800]');
+      b.classList.add('bg-white', 'border-slate-300');
+    });
+    btn.classList.add('active', 'bg-[#F5C800]', 'text-white', 'border-[#F5C800]');
+    btn.classList.remove('bg-white', 'border-slate-300');
+    calc();
+  });
+});
+
+document.getElementById('iso-use-surface').addEventListener('click', () => {
+  document.getElementById('iso-supp-check').checked = true;
+  document.getElementById('iso-supp-qty').value = document.getElementById('iso-surface').value || 0;
+  calc();
+});
+
+document.getElementById('btn-reset').addEventListener('click', () => {
+  document.querySelectorAll('input[type=number]').forEach(i => i.value = '');
+  document.querySelectorAll('input[type=checkbox]').forEach(c => c.checked = false);
+  document.getElementById('iso-ep').value   = 20;
+  document.getElementById('laine-ep').value = 20;
+  document.querySelectorAll('.tva-btn').forEach(b => {
+    b.classList.remove('active', 'bg-[#F5C800]', 'text-white', 'border-[#F5C800]');
+    b.classList.add('bg-white', 'border-slate-300');
+  });
+  const btn21 = document.querySelector('.tva-btn[data-tva="0.21"]');
+  btn21.classList.add('active', 'bg-[#F5C800]', 'text-white', 'border-[#F5C800]');
+  btn21.classList.remove('bg-white', 'border-slate-300');
+  calc();
+});
+
+// =============================================
+// MODAL IMPRESSION
+// =============================================
+const modal       = document.getElementById('coord-modal');
+const coordForm   = document.getElementById('coord-form');
+const anonCheck   = document.getElementById('anon-check');
+const coordFields = document.getElementById('coord-fields');
+
+document.getElementById('btn-print').addEventListener('click', () => {
+  modal.classList.remove('hidden');
+  modal.classList.add('flex');
+});
+
+document.getElementById('coord-cancel').addEventListener('click', () => {
+  modal.classList.add('hidden');
+  modal.classList.remove('flex');
+});
+
+modal.addEventListener('click', e => {
+  if (e.target === modal) {
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+  }
+});
+
+anonCheck.addEventListener('change', () => {
+  coordFields.style.opacity = anonCheck.checked ? '0.4' : '1';
+  coordFields.querySelectorAll('input').forEach(i => i.disabled = anonCheck.checked);
+});
+
+coordForm.addEventListener('submit', async e => {
+  e.preventDefault();
+  const data    = Object.fromEntries(new FormData(coordForm).entries());
+  const isAnon  = anonCheck.checked;
+  const nom     = isAnon ? 'Anonyme' : (data.nom     || '-');
+  const adresse = isAnon ? '-'       : (data.adresse || '-');
+  const tel     = isAnon ? '-'       : (data.tel     || '-');
+  const email   = isAnon ? '-'       : (data.email   || '-');
+
+  const coordsText = 'Client : ' + nom + '\nAdresse : ' + adresse + '\nTél : ' + tel + '\nEmail : ' + email + '\nDate : ' + new Date().toLocaleDateString('fr-BE');
+  document.getElementById('print-coords-content').textContent = coordsText;
+  document.getElementById('print-coords').classList.remove('hidden');
+
+  modal.classList.add('hidden');
+  modal.classList.remove('flex');
+  setTimeout(() => window.print(), 300);
+
+  try {
+    await fetch('https://api.web3forms.com/submit', {
+      method : 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body   : JSON.stringify({
+        access_key      : WEB3FORMS_KEY,
+        subject         : 'Nouveau devis – ' + nom,
+        from_name       : 'Simulateur Devis KUS',
+        nom_client      : nom,
+        adresse_chantier: adresse,
+        telephone       : tel,
+        email_client    : email,
+        anonyme         : isAnon ? 'oui' : 'non',
+        total_ht        : document.getElementById('r-ht').textContent,
+        total_ttc       : document.getElementById('r-ttc').textContent,
+        poste1          : document.getElementById('r-p1').textContent,
+        poste2          : document.getElementById('r-p2').textContent,
+        poste3          : document.getElementById('r-p3').textContent,
+        poste4          : document.getElementById('r-p4').textContent,
+        message         : coordsText + '\n\nDevis généré automatiquement.'
+      })
+    });
+  } catch(err) {
+    console.error('Erreur envoi Web3Forms', err);
+  }
+});
+
+// =============================================
+// INIT
+// =============================================
+calc();
+</script>
+</body>
+</html>
