@@ -213,27 +213,23 @@ footer{background:var(--n);color:#999;padding:3rem 7% 1.8rem;}
 
 @media print {
   @page { margin: 12mm; }
-  body * { visibility: hidden !important; }
-  #print-area, #print-area * { visibility: visible !important; }
-  #print-area { position: absolute; left: 0; top: 0; width: 100%; }
+  nav, footer, .page-hero, .no-print, #coord-modal, a[href*="wa.me"], .nav-burger, main > div.grid > aside > div > button { display:none !important; }
+  body { background:#fff !important; padding-top:0 !important; }
+  .sim-wrap { padding:0 !important; max-width:100% !important; }
+  header { display:none !important; }
   
-  /* Header noir jaune */
-  #print-company { background:#000 !important; color:#F5C800 !important; padding:14px 16px !important; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  /* zone imprimable */
+  #print-company { display:block !important; background:#000 !important; color:#F5C800 !important; padding:14px !important; margin-bottom:12px !important; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
   #print-company * { color:#F5C800 !important; }
-  #print-company .bg-black { background:#000 !important; }
-  
-  #print-coords, #print-qr, #print-summary { display:block !important; margin-bottom:12px !important; }
+  #print-coords { display:block !important; border:1px solid #ddd !important; padding:10px !important; margin-bottom:12px !important; }
   #print-qr { display:block !important; }
+  #print-summary { display:block !important; }
   
-  /* Cacher lignes vides */
-  tr.print-hide { display:none !important; }
-  section.print-hide { display:none !important; }
+  .space-y-6 > section { display:none !important; } /* cache l'éditeur */
+  section.print-hide, tr.print-hide { display:none !important; }
   
-  /* Style recap */
-  #print-summary { border:1px solid #ddd !important; padding:0 !important; }
-  #print-summary h2 { background:#F5C800 !important; color:#000 !important; padding:8px 12px !important; margin:0 !important; font-size:13px !important; -webkit-print-color-adjust:exact; }
-  #print-summary table { width:100% !important; }
-  #print-summary td { padding:5px 8px !important; font-size:11px !important; }
+  #print-summary { border:1px solid #ddd !important; }
+  #print-summary h2 { background:#F5C800 !important; color:#000 !important; padding:8px !important; -webkit-print-color-adjust:exact; }
 }
 
 </style>
@@ -359,19 +355,12 @@ footer{background:var(--n);color:#999;padding:3rem 7% 1.8rem;}
   </header>
 
   <!-- RÉCAPITULATIF POUR IMPRESSION -->
-  
-<div id="print-qr" class="hidden">
-  <div style="display:flex;justify-content:space-between;align-items:flex-start;border-top:1px solid #e5e5e5;padding-top:8px;margin-top:10px;font-size:11px">
-    <div>
-      <div style="font-weight:700;margin-bottom:2px">Retrouvez-nous en ligne :</div>
-      <div>Site : <a href="https://plafonnage-facade-luxembourg.be" style="text-decoration:underline;color:#000">plafonnage-facade-luxembourg.be</a></div>
-      <div>Avis : <a href="https://g.page/r/CZk_puIrxUNNEBM/review" style="text-decoration:underline;color:#000">Donner votre avis Google</a></div>
-      <div>Tél : <a href="tel:+32479635732" style="text-decoration:underline;color:#000">0479 63 57 32</a></div>
-    </div>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAUoAAAFKAQAAAABTUiuoAAACQklEQVR4nO2bQYqkQBBFX7RCLVPoA9RR9GpzpL6BHmVuoMuGlD+LzFSrBwZrwK6EjoCSsnyLD0GYET+zTJyM6e0sCY466ugbLJZjWPIFADNrKY/aSrQ6SiNJEtCI6R6BxUxShF6SNFej1dFcRxA+LWVmuks2AKnyhssFOHoq2uPN8i7rPzqMsLZ/tR8v1+roAxo+jalrBEsLU/ftAhz9d6TaOtRRP4JY3qNBGyEIWK4T4OiT6Jr6PlhuqaxsAOhnYDIzs+5aAY6eDR1iBo1BghCR5ub4cHy5VkdTUiBEIOTE0Cvf0iuikcazVQNKHqaClIupXApQfvNs1YE2Oo5VIQKsltYtALN7vFSAo0+gqyXLYgwxtxVDUKotjSEi/XbnqQqUw0KVLnMjjVBMp81+8jfh69Fj6zcC5U3YKHWHfTEQPVsVoKWDnxvlsjrkaGvoPVt1oNu8tQ9Y27cZ9gx6tupAl7yDZQNgZre0bWLWgX51q10twNEn0CDl+Tf17asBq+U9rxCxoRqtPxzlOA4/NBj7WuY9YUVoKG+9cbltDsZqJXnXC3D0dOxtRfIENW9u1BZeW5Wgjx78NhgfHEPAO/hK0GMd9cXL3XNEP+ehy7NVCbqfeVot7ZOkzZIZsr9xsQBHz0bZHWm0+4T7ClYeeG3Vh6aecDUmu8nsHtHIahoX9+CrQNsv94KYDqcpfcKM9R/XCXD0P6ZjbV5usXHTurWd1fA3YSXofuYpH4FPK9jUQT5ofbEAR0+G+T+CHHX0EvQPgibYLS7QSPAAAAAASUVORK5CYII=" style="width:60px;height:60px" alt="QR">
-  </div>
-</div>
-
+  <div id="print-qr" style="display:none">
+<div style="display:flex;justify-content:space-between;align-items:flex-start;border-top:1px solid #ddd;padding-top:8px;margin-top:10px;font-size:11px">
+<div><div style="font-weight:700">Retrouvez-nous :</div>
+<div>Site : <a href="https://plafonnage-facade-luxembourg.be" style="color:#000;text-decoration:underline">plafonnage-facade-luxembourg.be</a></div>
+<div>Avis : <a href="https://g.page/r/CZk_puIrxUNNEBM/review" style="color:#000;text-decoration:underline">Avis Google</a></div></div>
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAUoAAAFKAQAAAABTUiuoAAACQklEQVR4nO2bQYqkQBBFX7RCLVPoA9RR9GpzpL6BHmVuoMuGlD+LzFSrBwZrwK6EjoCSsnyLD0GYET+zTJyM6e0sCY466ugbLJZjWPIFADNrKY/aSrQ6SiNJEtCI6R6BxUxShF6SNFej1dFcRxA+LWVmuks2AKnyhssFOHoq2uPN8i7rPzqMsLZ/tR8v1+roAxo+jalrBEsLU/ftAhz9d6TaOtRRP4JY3qNBGyEIWK4T4OiT6Jr6PlhuqaxsAOhnYDIzs+5aAY6eDR1iBo1BghCR5ub4cHy5VkdTUiBEIOTE0Cvf0iuikcazVQNKHqaClIupXApQfvNs1YE2Oo5VIQKsltYtALN7vFSAo0+gqyXLYgwxtxVDUKotjSEi/XbnqQqUw0KVLnMjjVBMp81+8jfh69Fj6zcC5U3YKHWHfTEQPVsVoKWDnxvlsjrkaGvoPVt1oNu8tQ9Y27cZ9gx6tupAl7yDZQNgZre0bWLWgX51q10twNEn0CDl+Tf17asBq+U9rxCxoRqtPxzlOA4/NBj7WuY9YUVoKG+9cbltDsZqJXnXC3D0dOxtRfIENW9u1BZeW5Wgjx78NhgfHEPAO/hK0GMd9cXL3XNEP+ehy7NVCbqfeVot7ZOkzZIZsr9xsQBHz0bZHWm0+4T7ClYeeG3Vh6aecDUmu8nsHtHIahoX9+CrQNsv94KYDqcpfcKM9R/XCXD0P6ZjbV5usXHTurWd1fA3YSXofuYpH4FPK9jUQT5ofbEAR0+G+T+CHHX0EvQPgibYLS7QSPAAAAAASUVORK5CYII=" style="width:60px;height:60px"></div></div>
 <div id="print-summary" class="hidden print:block mb-6"></div>
 
   <div class="space-y-6">
