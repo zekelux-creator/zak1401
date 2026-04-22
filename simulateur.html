@@ -103,16 +103,9 @@ nav {
 .page-hero h1 {
   font-family: 'Barlow Condensed', sans-serif;
   font-weight: 900; font-size: clamp(2.2rem, 5vw, 4rem);
-  line-height: 0.95; color: #fff; text-transform: uppercase; margin-bottom: 0.2rem;
+  line-height: 0.95; color: #fff; text-transform: uppercase; margin-bottom: 0.8rem;
 }
 .page-hero h1 em { color: var(--j); font-style: normal; }
-/* NOUVEAU H2 POUR LE SEO */
-.page-hero h2 {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-weight: 700; font-size: 1.4rem; color: #ddd; 
-  text-transform: uppercase; letter-spacing: 0.05em; 
-  margin-bottom: 1.2rem;
-}
 .psub { font-size: 0.95rem; color: #bbb; line-height: 1.65; margin-bottom: 1.2rem; max-width: 580px; }
 .psub strong { color: #fff; }
 
@@ -161,15 +154,10 @@ nav {
   font-weight: 800; font-size: 1.05rem;
   text-transform: uppercase; letter-spacing: 0.07em; color: #fff;
 }
-/* OPTIMISATION SCROLL MOBILE ICI */
-.poste-body { 
-  padding: 1.2rem 1.5rem; 
-  overflow-x: auto; 
-  -webkit-overflow-scrolling: touch; 
-}
+.poste-body { padding: 1.2rem 1.5rem; }
 
-/* ===== TABLE ===== */
-table { width: 100%; min-width: 580px; border-collapse: collapse; font-size: 0.88rem; }
+/* ===== TABLE — desktop ===== */
+table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
 thead th {
   text-align: left; font-size: 0.68rem; font-weight: 700;
   text-transform: uppercase; letter-spacing: 0.08em;
@@ -185,23 +173,175 @@ tbody td {
 }
 tbody td.c { text-align: center; color: var(--ts); font-size: 0.8rem; }
 tbody td.r { text-align: right; color: var(--ts); }
-tbody td.total-cell { text-align: right; font-weight: 600; color: var(--n); }
+tbody td.total-cell { text-align: right; font-weight: 600; color: var(--n); min-width: 80px; }
 tfoot td {
   padding: 0.8rem 0.75rem;
   text-align: right; font-weight: 600; font-size: 0.9rem;
 }
 tfoot td:first-child { text-align: right; color: var(--ts); font-weight: 500; }
 
-/* ===== INPUTS (CORRECTION ZOOM SMARTPHONE) ===== */
-input[type="number"], .p3-input-lg, .modal-field input {
-  font-size: 16px !important; /* Forces 16px pour empêcher le zoom automatique sur iPhone */
+/* ===== TABLE — mobile card layout ===== */
+@media (max-width: 640px) {
+  .poste-body { padding: 0.75rem; }
+
+  /* Hide desktop table headers */
+  table thead { display: none; }
+
+  /* Each row becomes a card */
+  table tbody tr[data-pu],
+  table tbody tr.laine-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto;
+    gap: 0 0.5rem;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    margin-bottom: 0.5rem;
+    padding: 0.75rem 0.9rem;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  }
+  table tbody tr[data-pu]:hover,
+  table tbody tr.laine-row:hover { background: #fffef8; }
+
+  /* Designation cell — full width top */
+  table tbody tr[data-pu] td:nth-child(1),
+  table tbody tr.laine-row td:nth-child(1) {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    border: none;
+    padding: 0 0 0.4rem 0;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--n);
+  }
+
+  /* Unit + PU cell — bottom left */
+  table tbody tr[data-pu] td:nth-child(2),
+  table tbody tr.laine-row td:nth-child(2) {
+    grid-column: 1;
+    grid-row: 2;
+    border: none;
+    padding: 0;
+    text-align: left;
+    font-size: 0.78rem;
+    color: var(--ts);
+    align-self: center;
+  }
+
+  /* Combine unit + PU into one bottom-left cell — PU shown via data-info */
+  table tbody tr[data-pu] td:nth-child(2) { display: none; }
+  table tbody tr[data-pu] td:nth-child(3) { display: none; }
+  table tbody tr.laine-row td:nth-child(2) { display: none; }
+
+  /* Quantity input — bottom right, big and tappable */
+  table tbody tr[data-pu] td:nth-child(4),
+  table tbody tr.laine-row td:nth-child(4) {
+    grid-column: 2;
+    grid-row: 2;
+    border: none;
+    padding: 0;
+    text-align: right;
+    align-self: center;
+  }
+  table tbody tr[data-pu] td:nth-child(4) input,
+  table tbody tr.laine-row td:nth-child(4) input {
+    width: 90px !important;
+    padding: 0.55rem 0.7rem !important;
+    font-size: 1rem !important;
+    border-radius: 8px;
+    border: 2px solid var(--border);
+    text-align: right;
+  }
+  table tbody tr[data-pu] td:nth-child(4) input:focus,
+  table tbody tr.laine-row td:nth-child(4) input:focus {
+    border-color: var(--j);
+    background: #fff;
+  }
+
+  /* Total cell — shown inline as badge top-right */
+  table tbody tr[data-pu] td:nth-child(5),
+  table tbody tr.laine-row td:nth-child(5) {
+    grid-column: 2;
+    grid-row: 1;
+    border: none;
+    padding: 0;
+    text-align: right;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--jd);
+    align-self: start;
+  }
+
+  /* Forfait rows — single row layout */
+  table tbody tr.forfait-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fffbea;
+    border: 1px solid rgba(245,200,0,0.3);
+    border-radius: 10px;
+    margin-bottom: 0.5rem;
+    padding: 0.75rem 0.9rem;
+  }
+  table tbody tr.forfait-row td {
+    border: none; padding: 0;
+  }
+  table tbody tr.forfait-row td:nth-child(2),
+  table tbody tr.forfait-row td:nth-child(4) { display: none; }
+  table tbody tr.forfait-row td:nth-child(3) {
+    font-size: 0.78rem; font-weight: 700; color: var(--jd); white-space: nowrap;
+  }
+  table tbody tr.forfait-row td:nth-child(5) {
+    font-size: 0.78rem; font-weight: 700; color: var(--jd);
+  }
+
+  /* Sub-labels */
+  table tbody tr.sub-label {
+    display: block;
+    border: none;
+    padding: 0.7rem 0 0.2rem;
+    margin-bottom: 0;
+    background: transparent !important;
+    box-shadow: none;
+  }
+  table tbody tr.sub-label td {
+    border: none; padding: 0;
+  }
+
+  /* Laine de verre special row */
+  table tbody tr.laine-row td:nth-child(1) { font-weight: 600; }
+
+  /* tfoot */
+  table tfoot tr {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.8rem 0.2rem 0;
+    border-top: 2px solid var(--border);
+    margin-top: 0.5rem;
+  }
+  table tfoot td { padding: 0; font-size: 0.9rem; }
+  table tfoot td:first-child { text-align: left; }
+
+  /* Add PU info as sub-text in designation cell */
+  table tbody tr[data-pu] td:nth-child(1)::after {
+    content: attr(data-info);
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 400;
+    color: var(--ts);
+    margin-top: 2px;
+  }
 }
+
+/* ===== INPUTS ===== */
 input[type="number"] {
   width: 100px; text-align: right;
   padding: 0.45rem 0.6rem;
   border: 1.5px solid var(--border);
   border-radius: 8px;
   font-family: 'Lato', sans-serif;
+  font-size: 0.88rem;
   outline: none;
   background: #fafaf8;
   transition: border-color 0.2s, background 0.2s;
@@ -238,7 +378,7 @@ input[type="range"] { accent-color: var(--jd); cursor: pointer; }
 .p3-input-lg {
   width: 100%; padding: 0.7rem 0.9rem;
   border: 1.5px solid var(--border); border-radius: 10px;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Lato', sans-serif; font-size: 0.95rem;
   text-align: right; outline: none; background: #fafaf8;
   transition: border-color 0.2s;
   -moz-appearance: textfield;
@@ -391,7 +531,7 @@ input[type="range"] { accent-color: var(--jd); cursor: pointer; }
 .modal-field input {
   width: 100%; padding: 0.65rem 0.9rem;
   border: 1.5px solid var(--border); border-radius: 8px;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Lato', sans-serif; font-size: 0.9rem;
   outline: none; background: #fafaf8; transition: border-color 0.2s;
 }
 .modal-field input:focus { border-color: var(--j); background: #fff; }
@@ -446,14 +586,33 @@ footer {
   .p3-grid > :last-child { grid-column: span 2; }
   .foot-g { grid-template-columns: 1fr 1fr; }
   .foot-bot { flex-direction: column; gap: 0.3rem; }
-}
-@media (max-width: 600px) {
+
+  /* --- CORRECTION DU MENU DÉROULANT SUR MOBILE --- */
+  .dd-menu {
+    position: relative; 
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0.5rem 0 0 1rem; 
+    border-left: 2px solid var(--j); 
+  }
+  .dd-menu a {
+    color: #bbb; 
+    padding: 0.5rem 0;
+  }
+  .dd-menu a:hover {
+    background: transparent;
+    padding-left: 0.5rem;
+  }
+}@media (max-width: 600px) {
   .p3-grid { grid-template-columns: 1fr; }
   .p3-grid > :last-child { grid-column: span 1; }
   .foot-g { grid-template-columns: 1fr; }
   .modal-row { grid-template-columns: 1fr; }
-  .sim-wrap { padding: 1.5rem 4%; }
-  .poste-body { padding: 1rem; }
+  .sim-wrap { padding: 1.5rem 3%; }
+  .poste-card { border-radius: 10px; }
+  .recap-footer { flex-wrap: wrap; }
+  .btn-print { margin-left: 0; width: 100%; text-align: center; justify-content: center; }
 }
 
 /* ===== PRINT ===== */
@@ -468,6 +627,7 @@ footer {
 </head>
 <body>
 
+<!-- ===== MODAL ===== -->
 <div id="modal" class="modal-overlay">
   <div class="modal-box">
     <h3>Coordonnées du devis</h3>
@@ -502,6 +662,7 @@ footer {
   </div>
 </div>
 
+<!-- ===== NAV ===== -->
 <nav>
   <a href="#" class="nav-brand">SRL <span>KUS</span> ZEKERIYA</a>
   <div class="nav-links" id="navLinks">
@@ -533,20 +694,21 @@ footer {
   </button>
 </nav>
 
+<!-- ===== HERO ===== -->
 <section class="page-hero">
   <div class="page-hero-bg"></div>
   <div class="phc">
     <div class="ptag">⚒ OUTIL PRO — TARIFS 2026</div>
-    <h1>Simulateur de Devis<br><em>Plafonnage & Façade</em></h1>
-    <h2>Votre entreprise spécialisée en Province de Luxembourg</h2>
+    <h1>Simulateur <em>de devis</em><br>instantané</h1>
     <p class="psub">
-      <strong>Estimez en 2 minutes votre prix au m²</strong> pour vos travaux de rénovation (crépi, cloisons, isolation).
-      Renseignez vos surfaces, le total se calcule automatiquement pour Vaux-sur-Sûre, Bastogne et toute la région. Pour un devis ferme et gratuit sous 48h,
+      <strong>Estimez en 2 minutes votre budget</strong> plafonnage ou façade en Province de Luxembourg.
+      Renseignez vos surfaces, le total se calcule automatiquement. Pour un devis ferme et gratuit sous 48h,
       contactez la SRL KUS ZEKERIYA au <strong>+32 479 63 57 32</strong>.
     </p>
   </div>
 </section>
 
+<!-- ===== TICKER ===== -->
 <div class="ticker">
   <div class="ticker-t">
     <span>✦ Plafonnage intérieur</span>
@@ -568,13 +730,16 @@ footer {
   </div>
 </div>
 
+<!-- ===== SIMULATEUR ===== -->
 <div class="sim-wrap" id="simulateur">
 
+  <!-- PRINT COORDS -->
   <div id="print-coords">
     <h4>Coordonnées chantier</h4>
     <div id="print-coords-content"></div>
   </div>
 
+  <!-- ===== POSTE 1 ===== -->
   <div class="poste-card">
     <div class="poste-header">
       <div class="poste-num">1</div>
@@ -652,7 +817,8 @@ footer {
             <td class="total-cell">0,00 €</td>
           </tr>
 
-          <tr style="background:#fafbff;">
+          <!-- Laine de verre — ligne spéciale -->
+          <tr class="laine-row" style="background:#fafbff;">
             <td>
               <div style="font-weight:600;margin-bottom:6px;">Laine de verre</div>
               <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
@@ -664,7 +830,7 @@ footer {
             </td>
             <td class="c">m²</td>
             <td class="r"><span id="laine-pu">40,00 €</span></td>
-            <td class="r"><input id="laine-surface" type="number" min="0" step="1" placeholder="0" style="width:100px;text-align:right;padding:0.45rem 0.6rem;border:1.5px solid var(--border);border-radius:8px;font-size:16px;outline:none;background:#fafaf8;-moz-appearance:textfield;"></td>
+            <td class="r"><input id="laine-surface" type="number" min="0" step="1" placeholder="0" style="width:100px;text-align:right;padding:0.45rem 0.6rem;border:1.5px solid var(--border);border-radius:8px;font-size:0.88rem;outline:none;background:#fafaf8;-moz-appearance:textfield;"></td>
             <td class="total-cell"><span id="laine-total">0,00 €</span></td>
           </tr>
 
@@ -699,6 +865,7 @@ footer {
     </div>
   </div>
 
+  <!-- ===== POSTE 2 ===== -->
   <div class="poste-card">
     <div class="poste-header">
       <div class="poste-num">2</div>
@@ -750,6 +917,7 @@ footer {
     </div>
   </div>
 
+  <!-- ===== POSTE 3 ===== -->
   <div class="poste-card">
     <div class="poste-header">
       <div class="poste-num">3</div>
@@ -781,6 +949,7 @@ footer {
         <span id="iso-total" class="val">0,00 €</span>
       </div>
 
+      <!-- Supplément HD -->
       <div class="p3-option">
         <div class="opt-left">
           <label>
@@ -788,7 +957,7 @@ footer {
             <span>Supplément haute densité pour sous-bassement <strong style="color:var(--jd);">+10,00 €/m²</strong></span>
           </label>
           <div class="opt-qty-wrap">
-            <input id="iso-supp-qty" type="number" min="0" step="1" placeholder="0" disabled style="width:100px;text-align:right;padding:0.45rem 0.6rem;border:1.5px solid var(--border);border-radius:8px;font-size:16px;outline:none;background:#fafaf8;-moz-appearance:textfield;">
+            <input id="iso-supp-qty" type="number" min="0" step="1" placeholder="0" disabled style="width:100px;text-align:right;padding:0.45rem 0.6rem;border:1.5px solid var(--border);border-radius:8px;font-size:0.88rem;outline:none;background:#fafaf8;-moz-appearance:textfield;">
             <span style="font-size:0.82rem;color:var(--ts);">m²</span>
             <button class="btn-use-surface" id="iso-use-surface" type="button">Utiliser surface</button>
           </div>
@@ -799,6 +968,7 @@ footer {
         </div>
       </div>
 
+      <!-- Forfait sous-bassement -->
       <div class="p3-option">
         <div class="opt-left">
           <label>
@@ -819,6 +989,7 @@ footer {
     </div>
   </div>
 
+  <!-- ===== POSTE 4 ===== -->
   <div class="poste-card">
     <div class="poste-header">
       <div class="poste-num">4</div>
@@ -870,6 +1041,7 @@ footer {
     </div>
   </div>
 
+  <!-- ===== RÉCAPITULATIF ===== -->
   <div class="recap-card">
     <div class="recap-header">
       <div style="width:32px;height:32px;background:var(--j);border-radius:6px;display:flex;align-items:center;justify-content:center;">
@@ -926,11 +1098,13 @@ footer {
   <p class="note">* Prix HTVA. Participation déchets : 75 € de base, +75 € par tranche de 5 000 € HT entamée. Ce simulateur donne une estimation indicative ; un devis ferme vous sera remis gratuitement sous 48h.</p>
 </div>
 
+<!-- ===== WHATSAPP ===== -->
 <a href="https://wa.me/32479635732?text=Bonjour,%20je%20souhaite%20recevoir%20un%20devis%20pour%20mon%20projet.%20Pouvez-vous%20me%20recontacter%20?" target="_blank" class="wa-btn">
   <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
   Demander un devis
 </a>
 
+<!-- ===== FOOTER ===== -->
 <footer id="contact">
   <div class="foot-g">
     <div>
@@ -938,7 +1112,7 @@ footer {
       <p class="foot-desc">Plafonneur &amp; spécialiste façades depuis 25 ans en Province de Luxembourg. Plafonnage, façades isolantes, façades traditionnelles, cloisons, isolation et peinture.</p>
       <div style="display:flex;gap:0.7rem;margin-top:1.2rem;flex-wrap:wrap;">
         <a href="https://www.facebook.com/profile.php?id=61577511924549" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:0.45rem;background:#1877F2;color:#fff;padding:0.4rem 0.85rem;border-radius:6px;font-size:0.77rem;font-weight:700;text-decoration:none;">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg Facebook
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg> Facebook
         </a>
         <a href="https://www.trustup.be/fr/entreprise/kus-zekeriya" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:0.45rem;background:#F5C800;color:#1a1a1a;padding:0.4rem 0.85rem;border-radius:6px;font-size:0.77rem;font-weight:700;text-decoration:none;">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L3 7v10l9 5 9-5V7L12 2z"/></svg> Trustup
@@ -1176,6 +1350,22 @@ document.getElementById('modal-submit').addEventListener('click', async () => {
     });
   } catch(err) { console.error('Web3Forms error:', err); }
 });
+
+// ===== MOBILE: inject PU+unit as data-info on designation cells =====
+(function() {
+  const unitMap = {17:'17 € / m²',21:'21 € / m²',18:'18 € / m²',8:'8 € / ml',15:'15 € / ml',
+    550:'550 € / m²',16:'16 € / m²',28:'28 € / m²',14:'14 € / m²',
+    5:'5 € / m²',25:'25 € / ml',75:'75 € / m²',10:'10 € / m²',45:'45 € / m²'};
+  document.querySelectorAll('tr[data-pu]').forEach(tr => {
+    const pu = tr.dataset.pu;
+    const unitCell = tr.querySelector('td.c');
+    const unit = unitCell ? unitCell.textContent.trim() : '';
+    const desTd = tr.querySelector('td:first-child');
+    if (desTd && !tr.classList.contains('forfait-row')) {
+      desTd.setAttribute('data-info', pu + ' € / ' + unit);
+    }
+  });
+})();
 
 // ===== INIT =====
 calc();
