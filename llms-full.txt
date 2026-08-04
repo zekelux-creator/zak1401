@@ -1,0 +1,60 @@
+# SRL KUS ZEKERIYA - Simulateur de Devis (contenu complet)
+
+> Ce fichier détaille le contenu du simulateur de devis en ligne : https://plafonnage-facade-luxembourg.be/simulateur
+> Outil principal de l'entreprise : estimation instantanée en 2 minutes, calcul automatique, imprimable/PDF. Devis ferme et gratuit sous 48h : +32 479 63 57 32.
+
+## Poste 1 — Intérieur : Plafonnage & Isolation
+
+### A. Enduits intérieurs
+- Enduit plâtre lisse – murs : 17,00 €/m²
+- Enduit plâtre lisse – plafonds : 21,00 €/m²
+
+### B. Cloisons & finitions
+- Plaque de plâtre gyplat : 18,00 €/m²
+- Cornière d'angle (renfort) : 8,00 €/ml
+- Habillage plaque – tours de fenêtre : 15,00 €/ml
+- Tablette de fenêtre Cat.1 (fourniture et pose) : 550,00 €/m²
+- Pose APU sur châssis : 5,00 €/ml
+
+### C. Isolation & ossature
+- Lattage bois : 16,00 €/m²
+- Chevronnage : 28,00 €/m²
+- Laine de verre (épaisseur ajustable, ex. 20 cm) : 40,00 €/m²
+- Pare-vapeur : 14,00 €/m²
+
+### D. Préparations
+- Primaire d'accrochage (Ytong/béton) : 5,00 €/m²
+- Traitement poutrelle métallique : 25,00 €/ml
+
+## Poste 2 — Façade Traditionnelle
+- Façade traditionnelle cimentage crépis : 75,00 €/m²
+- Treillis intégral (option) : 10,00 €/m²
+- Forfait sous-bassement étanche (fortement conseillé) : 1 000,00 € (unité)
+
+## Poste 3 — Façade Isolante (Crépi)
+- Prix calculé selon épaisseur d'isolant, réglable de 10 à 30 cm
+- Base 20 cm : 140,00 €/m²
+- Supplément haute densité pour sous-bassement : +10,00 €/m²
+- Forfait sous-bassement étanche (fortement conseillé) : 1 000,00 €
+
+## Poste 4 — Peinture
+- Lavage haute pression + peinture 2 couches : 45,00 €/m²
+- Pose couche fond fixateur : 5,00 €/m²
+- Forfait sous-bassement étanche (fortement conseillé) : 1 000,00 € (unité)
+
+## Récapitulatif & calcul automatique
+Le simulateur additionne les 4 postes (Plafonnage & Isolation, Façade traditionnelle, Façade isolante, Peinture) pour donner :
+- Sous-total travaux HT
+- Participation déchets : 75 € de base, +75 € par tranche de 5 000 € HT entamée
+- Total HT
+- TVA applicable : 6 % ou 21 % selon le projet
+- Responsabilité civile décennale (RC-10)
+- Total TTC
+
+Tous les prix sont HTVA et indicatifs. Le simulateur permet de générer une estimation imprimable/PDF instantanément ; un devis ferme et gratuit est ensuite fourni par SRL KUS ZEKERIYA sous 48h.
+
+## Contact
+- Téléphone : +32 479 63 57 32
+- Email : zekelux@hotmail.com
+- Adresse : Vaux-sur-Sûre, 6640, Province de Luxembourg, Belgique
+- TVA : BE 1005.336.605
