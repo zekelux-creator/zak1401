@@ -44,6 +44,15 @@ Sitemap: https://plafonnage-facade-luxembourg.be/sitemap.xml`;
       });
     }
 
+    // ✅ Redirection 301 : version .html -> version sans extension
+    // Corrige le contenu dupliqué détecté par Google Search Console
+    // (ex: /isolation-interieur.html et /isolation-interieur répondaient
+    // tous les deux en 200 avec le même contenu, sans redirection entre eux)
+    if (url.pathname.endsWith(".html") && url.pathname !== "/index.html") {
+      url.pathname = url.pathname.replace(/\.html$/, "");
+      return Response.redirect(url.toString(), 301);
+    }
+
     // ✅ Sert les assets statiques normalement
     return env.ASSETS.fetch(request);
   },
