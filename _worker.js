@@ -44,12 +44,32 @@ Sitemap: https://plafonnage-facade-luxembourg.be/sitemap.xml`;
       });
     }
 
-    // ✅ Redirection 301 : version .html -> version sans extension
-    // Corrige le contenu dupliqué détecté par Google Search Console
-    // (ex: /isolation-interieur.html et /isolation-interieur répondaient
-    // tous les deux en 200 avec le même contenu, sans redirection entre eux)
-    if (url.pathname.endsWith(".html") && url.pathname !== "/index.html") {
+    // ✅ Domaine canonique : https + sans www
+    // Corrige les 4 variantes détectées par Google Search Console
+    // (http/https x www/non-www qui répondaient toutes en 200 séparément)
+    const CANONICAL_HOST = "plafonnage-facade-luxembourg.be";
+    let needsRedirect = false;
+
+    if (url.protocol !== "https:") {
+      url.protocol = "https:";
+      needsRedirect = true;
+    }
+    if (url.hostname !== CANONICAL_HOST) {
+      url.hostname = CANONICAL_HOST;
+      needsRedirect = true;
+    }
+
+    // ✅ Cas particulier : /index.html -> racine "/"
+    if (url.pathname === "/index.html") {
+      url.pathname = "/";
+      needsRedirect = true;
+    } else if (url.pathname.endsWith(".html")) {
+      // ✅ Redirection 301 : version .html -> version sans extension
       url.pathname = url.pathname.replace(/\.html$/, "");
+      needsRedirect = true;
+    }
+
+    if (needsRedirect) {
       return Response.redirect(url.toString(), 301);
     }
 
